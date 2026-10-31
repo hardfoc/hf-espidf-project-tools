@@ -16,7 +16,7 @@ permalink: /
 
 > **📋 Important**: These tools are designed to be **integrated into your ESP-IDF project**, not used as standalone applications.
 
-**🌐 [Live Documentation](https://n3b3x.github.io/hf-espidf-project-tools/)** 
+**🌐 [Live Documentation](https://hardfoc.github.io/hf-espidf-project-tools/)** 
 
 ---
 
@@ -107,7 +107,7 @@ cd your-esp-idf-project
 # CI/CD Usage:
 jobs:
   build:
-    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
+    uses: hardfoc/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
     with:
       project_dir: examples/esp32
       project_tools_dir: examples/esp32/hf-espidf-project-tools  # Points to submodule
@@ -127,7 +127,7 @@ jobs:
 # CI/CD Usage:
 jobs:
   build:
-    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
+    uses: hardfoc/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
     with:
       project_dir: examples/esp32
       # project_tools_dir not needed - auto-detects hf-espidf-project-tools
@@ -147,7 +147,7 @@ jobs:
 # CI/CD Usage:
 jobs:
   build:
-    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
+    uses: hardfoc/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
     with:
       project_dir: firmware/esp32
       project_tools_dir: build-tools
@@ -171,13 +171,13 @@ jobs:
 # CI/CD Usage:
 jobs:
   build-project-a:
-    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
+    uses: hardfoc/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
     with:
       project_dir: projects/project-a
       project_tools_dir: shared-tools  # Shared across all projects
       
   build-project-b:
-    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
+    uses: hardfoc/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
     with:
       project_dir: projects/project-b
       project_tools_dir: shared-tools  # Same shared tools directory
@@ -212,11 +212,11 @@ apps:
 
 ## 🔗 **CI/CD Integration**
 
-Works with the [ESP-IDF CI Tools](https://github.com/N3b3x/hf-espidf-ci-tools) for automated builds:
+Works with the [ESP-IDF CI Tools](https://github.com/hardfoc/hf-espidf-ci-tools) for automated builds:
 
 ```yaml
 - name: Build ESP-IDF Applications
-  uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
+  uses: hardfoc/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
   with:
     project_dir: examples/esp32
     project_tools_dir: examples/esp32/scripts
@@ -224,11 +224,11 @@ Works with the [ESP-IDF CI Tools](https://github.com/N3b3x/hf-espidf-ci-tools) f
 
 ## 📚 **Documentation**
 
-- **[Getting Started](https://n3b3x.github.io/hf-espidf-project-tools/docs/getting-started/)** - Quick start guide
-- **[CI Integration Patterns](https://n3b3x.github.io/hf-espidf-project-tools/docs/ci-integration-patterns/)** - CI/CD patterns
-- **[Build System](https://n3b3x.github.io/hf-espidf-project-tools/docs/build-system/)** - Build management
-- **[Configuration](https://n3b3x.github.io/hf-espidf-project-tools/docs/configuration/)** - YAML configuration
-- **[Examples](https://n3b3x.github.io/hf-espidf-project-tools/docs/examples/)** - Real-world examples
+- **[Getting Started](https://hardfoc.github.io/hf-espidf-project-tools/docs/getting-started/)** - Quick start guide
+- **[CI Integration Patterns](https://hardfoc.github.io/hf-espidf-project-tools/docs/ci-integration-patterns/)** - CI/CD patterns
+- **[Build System](https://hardfoc.github.io/hf-espidf-project-tools/docs/build-system/)** - Build management
+- **[Configuration](https://hardfoc.github.io/hf-espidf-project-tools/docs/configuration/)** - YAML configuration
+- **[Examples](https://hardfoc.github.io/hf-espidf-project-tools/docs/examples/)** - Real-world examples
 
 ## 🧪 **Testing**
 
@@ -238,7 +238,7 @@ Works with the [ESP-IDF CI Tools](https://github.com/N3b3x/hf-espidf-ci-tools) f
 
 ## 🤝 **Contributing**
 
-Contributions welcome! See our [Contributing Guide](https://n3b3x.github.io/hf-espidf-project-tools/docs/contributing/) for details.
+Contributions welcome! See our [Contributing Guide](https://hardfoc.github.io/hf-espidf-project-tools/docs/contributing/) for details.
 
 ## 📄 **License**
 
