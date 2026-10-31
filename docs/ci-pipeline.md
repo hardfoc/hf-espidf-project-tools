@@ -31,7 +31,7 @@ on:
 
 jobs:
   build:
-    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
+    uses: hardfoc/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
     with:
       project_dir: examples/esp32
       project_tools_dir: examples/esp32/scripts

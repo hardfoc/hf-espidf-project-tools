@@ -13,7 +13,7 @@ This document explains how to use the ESP-IDF CI pipeline from the separate CI t
 
 ## 📋 **Overview**
 
-The CI pipeline has been moved to a separate repository: **[N3b3x/hf-espidf-ci-tools](https://github.com/N3b3x/hf-espidf-ci-tools)**
+The CI pipeline has been moved to a separate repository: **[hardfoc/hf-espidf-ci-tools](https://github.com/hardfoc/hf-espidf-ci-tools)**
 
 This repository contains the development scripts, while the CI pipeline is maintained separately for better organization and reusability.
 
@@ -34,7 +34,7 @@ on:
 
 jobs:
   build:
-    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@main
+    uses: hardfoc/hf-espidf-ci-tools/.github/workflows/ru-build.yml@main
     with:
       project_dir: "your-esp-idf-project"  # Path to your ESP-IDF project directory
       project_tools_dir: "scripts"  # Path to your scripts directory, maybe [your-esp-idf-project/scripts] or...
@@ -114,7 +114,7 @@ Set a maximum firmware size to fail builds that exceed limits:
 ```yaml
 jobs:
 build:
-    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@main
+    uses: hardfoc/hf-espidf-ci-tools/.github/workflows/ru-build.yml@main
     with:
       project_dir: "."
       project_tools_dir: "scripts"
@@ -128,7 +128,7 @@ If your project has a different structure:
 ```yaml
 jobs:
   build:
-    uses: N3b3x/hf-espidf-ci-tools/.github/workflows/ru-build.yml@main
+    uses: hardfoc/hf-espidf-ci-tools/.github/workflows/ru-build.yml@main
       with:
       project_dir: "firmware"  # ESP-IDF project in subdirectory
       project_tools_dir: "tools/scripts"  # Scripts in different location
@@ -145,6 +145,6 @@ jobs:
 
 ## 🤝 **Support**
 
-For CI pipeline issues or feature requests, please visit the [CI Tools Repository](https://github.com/N3b3x/hf-espidf-ci-tools/issues).
+For CI pipeline issues or feature requests, please visit the [CI Tools Repository](https://github.com/hardfoc/hf-espidf-ci-tools/issues).
 
 For development script issues, please use this repository's [Issues](https://github.com/n3b3x/hf-espidf-project-tools/issues).

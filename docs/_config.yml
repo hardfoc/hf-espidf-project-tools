@@ -157,7 +157,7 @@ seo:
   name: "HardFOC ESP-IDF Project Tools"
   description: >
     Development Scripts for ESP-IDF projects with multi-application build support.
-  url: "https://n3b3x.github.io/hf-espidf-project-tools"
+  url: "https://hardfoc.github.io/hf-espidf-project-tools"
   twitter:
     card: "summary_large_image"
     site: "@n3b3x"

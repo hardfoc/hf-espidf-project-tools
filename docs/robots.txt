@@ -1,5 +1,5 @@
 # Robots.txt for hf-general-ci-tools documentation
-# https://n3b3x.github.io/hf-general-ci-tools/
+# https://hardfoc.github.io/hf-general-ci-tools/
 
 # Allow all web crawlers
 User-agent: *
@@ -51,11 +51,11 @@ Allow: /*.pdf$
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://n3b3x.github.io/hf-general-ci-tools/sitemap.xml
+Sitemap: https://hardfoc.github.io/hf-general-ci-tools/sitemap.xml
 
 # Additional sitemaps (if available)
-# Sitemap: https://n3b3x.github.io/hf-general-ci-tools/sitemap-pages.xml
-# Sitemap: https://n3b3x.github.io/hf-general-ci-tools/sitemap-posts.xml
+# Sitemap: https://hardfoc.github.io/hf-general-ci-tools/sitemap-pages.xml
+# Sitemap: https://hardfoc.github.io/hf-general-ci-tools/sitemap-posts.xml
 
 # Special instructions for specific bots
 User-agent: Googlebot
