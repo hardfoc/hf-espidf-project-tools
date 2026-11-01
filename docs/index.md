@@ -23,7 +23,7 @@ Choose the best integration method for your ESP-IDF project:
 cd your-esp-idf-project
 
 # Add tools as submodule
-git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts
+git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts
 
 # Your project structure:
 # your-esp-idf-project/
@@ -44,7 +44,7 @@ git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts
 cd your-esp-idf-project
 
 # Clone tools directly
-git clone https://github.com/n3b3x/hf-espidf-project-tools.git scripts
+git clone https://github.com/hardfoc/hf-espidf-project-tools.git scripts
 
 # Your project structure:
 # your-esp-idf-project/
@@ -64,7 +64,7 @@ git clone https://github.com/n3b3x/hf-espidf-project-tools.git scripts
 # For multiple projects, use shared tools
 mkdir -p ~/shared-esp32-tools
 cd ~/shared-esp32-tools
-git clone https://github.com/n3b3x/hf-espidf-project-tools.git .
+git clone https://github.com/hardfoc/hf-espidf-project-tools.git .
 
 # In each ESP-IDF project, use --project-path
 cd your-esp-idf-project
@@ -151,7 +151,7 @@ We welcome contributions! See our [Contributing Guide](/docs/contributing/) for 
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/n3b3x/hf-espidf-project-tools/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/hardfoc/hf-espidf-project-tools/blob/main/LICENSE) file for details.
 
 ---
 

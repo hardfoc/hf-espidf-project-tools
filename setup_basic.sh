@@ -110,7 +110,7 @@ git init
 
 # Add hf-espidf-project-tools as submodule
 print_status "Adding hf-espidf-project-tools as submodule..."
-git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts
+git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts
 
 # Install ESP-IDF version
 print_status "Installing ESP-IDF version: $ESPIDF_VERSION"
@@ -489,7 +489,7 @@ This project uses ESP-IDF version: **$ESPIDF_VERSION**
 
 ## Documentation
 
-For detailed documentation, see: [hf-espidf-project-tools](https://github.com/n3b3x/hf-espidf-project-tools)
+For detailed documentation, see: [hf-espidf-project-tools](https://github.com/hardfoc/hf-espidf-project-tools)
 EOF
 
 # Make scripts executable

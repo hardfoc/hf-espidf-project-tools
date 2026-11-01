@@ -249,9 +249,9 @@ Current focus areas:
 
 ### Communication Channels
 
-- **[GitHub Issues](https://github.com/n3b3x/hf-espidf-project-tools/issues)** - Bug reports and feature requests
-- **[GitHub Discussions](https://github.com/n3b3x/hf-espidf-project-tools/discussions)** - Questions and community support
-- **[Pull Requests](https://github.com/n3b3x/hf-espidf-project-tools/pulls)** - Code contributions
+- **[GitHub Issues](https://github.com/hardfoc/hf-espidf-project-tools/issues)** - Bug reports and feature requests
+- **[GitHub Discussions](https://github.com/hardfoc/hf-espidf-project-tools/discussions)** - Questions and community support
+- **[Pull Requests](https://github.com/hardfoc/hf-espidf-project-tools/pulls)** - Code contributions
 
 ### Maintainer Contact
 
@@ -302,4 +302,4 @@ Contributors will be recognized in:
 
 ---
 
-**Ready to contribute?** Start by [forking the repository](https://github.com/n3b3x/hf-espidf-project-tools/fork) and checking out our [GitHub Issues](https://github.com/n3b3x/hf-espidf-project-tools/issues) for good first issues to work on!
+**Ready to contribute?** Start by [forking the repository](https://github.com/hardfoc/hf-espidf-project-tools/fork) and checking out our [GitHub Issues](https://github.com/hardfoc/hf-espidf-project-tools/issues) for good first issues to work on!

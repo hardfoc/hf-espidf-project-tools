@@ -245,7 +245,7 @@ If you already have an ESP-IDF project, you can still add the tools:
 cd existing-project
 
 # Add tools as submodule
-git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts
+git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts
 
 # Create app_config.yml manually
 # (See Configuration documentation for details)

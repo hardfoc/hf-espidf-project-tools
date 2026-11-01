@@ -147,4 +147,4 @@ jobs:
 
 For CI pipeline issues or feature requests, please visit the [CI Tools Repository](https://github.com/hardfoc/hf-espidf-ci-tools/issues).
 
-For development script issues, please use this repository's [Issues](https://github.com/n3b3x/hf-espidf-project-tools/issues).
+For development script issues, please use this repository's [Issues](https://github.com/hardfoc/hf-espidf-project-tools/issues).

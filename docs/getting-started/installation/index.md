@@ -50,7 +50,7 @@ This is the simplest method for most users:
 
 1. **Download the repository**:
    ```bash
-   git clone https://github.com/n3b3x/hf-espidf-project-tools.git
+   git clone https://github.com/hardfoc/hf-espidf-project-tools.git
    cd hf-espidf-project-tools
    ```
 
@@ -82,7 +82,7 @@ For projects that want to track updates:
 1. **Add as submodule**:
    ```bash
    cd /path/to/your/repository
-   git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts
+   git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts
    ```
 
 2.. **Update submodule** when needed:
@@ -176,7 +176,7 @@ After successful installation:
 
 ## 📚 Additional Resources
 
-- **[GitHub Repository](https://github.com/n3b3x/hf-espidf-project-tools)** - Source code and issues
+- **[GitHub Repository](https://github.com/hardfoc/hf-espidf-project-tools)** - Source code and issues
 - **[Examples](examples/)** - Real-world usage examples
 - **[Troubleshooting](troubleshooting/)** - Common issues and solutions
 
