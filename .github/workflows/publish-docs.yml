@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -19,8 +19,9 @@ concurrency:
 
 jobs:
   publish-docs:
-    uses: hardfoc/hf-general-ci-tools/.github/workflows/docs.yml@main
+    uses: hardfoc/hf-general-ci-tools/.github/workflows/ru-docs-publish.yml@main
     with:
+      checkout_recursive: false
       # Jekyll configuration for this repo's docs
       jekyll_enabled: true
       jekyll_config: "docs/_config.yml"
@@ -41,5 +42,5 @@ jobs:
       run_spell_check: false
       spell_check_paths: "**/*.md"
 
-      # Deploy to GitHub Pages
-      deploy_pages: true
+      # Deploy to GitHub Pages (pushes to main / manual runs only, never from PRs)
+      deploy_pages: ${{ github.event_name != 'pull_request' }}
