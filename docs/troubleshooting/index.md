@@ -223,8 +223,8 @@ cd /examples/esp32
 
 ### Community Support
 
-- **[GitHub Issues](https://github.com/n3b3x/hf-espidf-project-tools/issues)** - Report bugs and request features
-- **[Discussions](https://github.com/n3b3x/hf-espidf-project-tools/discussions)** - Ask questions and share solutions
+- **[GitHub Issues](https://github.com/hardfoc/hf-espidf-project-tools/issues)** - Report bugs and request features
+- **[Discussions](https://github.com/hardfoc/hf-espidf-project-tools/discussions)** - Ask questions and share solutions
 - **[ESP-IDF Forum](https://esp32.com/)** - ESP-IDF specific issues
 
 ### Professional Support
@@ -243,4 +243,4 @@ For enterprise or complex issues:
 
 ---
 
-**Still having issues?** Check our [GitHub Issues](https://github.com/n3b3x/hf-espidf-project-tools/issues) or create a new issue with detailed information about your problem.
+**Still having issues?** Check our [GitHub Issues](https://github.com/hardfoc/hf-espidf-project-tools/issues) or create a new issue with detailed information about your problem.

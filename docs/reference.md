@@ -46,8 +46,8 @@ Reference materials, examples, and troubleshooting guides for the HardFOC ESP-ID
 
 ## Getting Help
 
-- **Issues**: [GitHub Issues](https://github.com/n3b3x/hf-espidf-project-tools/issues)
-- **Discussions**: [GitHub Issues](https://github.com/n3b3x/hf-espidf-project-tools/issues) (Discussions not enabled)
+- **Issues**: [GitHub Issues](https://github.com/hardfoc/hf-espidf-project-tools/issues)
+- **Discussions**: [GitHub Issues](https://github.com/hardfoc/hf-espidf-project-tools/issues) (Discussions not enabled)
 - **Documentation**: This reference section
 
 ## Examples by Use Case

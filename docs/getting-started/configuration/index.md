@@ -262,7 +262,7 @@ Common configuration issues:
 - **ESP-IDF version errors** - Verify version availability
 - **Build failures** - Check build configuration
 
-For more help, see [Troubleshooting](troubleshooting/) or [GitHub Issues](https://github.com/n3b3x/hf-espidf-project-tools/issues).
+For more help, see [Troubleshooting](troubleshooting/) or [GitHub Issues](https://github.com/hardfoc/hf-espidf-project-tools/issues).
 
 ---
 

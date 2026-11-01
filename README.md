@@ -40,7 +40,7 @@ Choose the best method for your ESP-IDF project:
 cd your-esp-idf-project
 
 # Add tools as submodule
-git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts
+git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts
 
 # Your project structure:
 # your-esp-idf-project/
@@ -61,7 +61,7 @@ git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts
 cd your-esp-idf-project
 
 # Clone tools directly
-git clone https://github.com/n3b3x/hf-espidf-project-tools.git scripts
+git clone https://github.com/hardfoc/hf-espidf-project-tools.git scripts
 
 # Start building
 ./scripts/build_app.sh your_app Release
@@ -72,7 +72,7 @@ git clone https://github.com/n3b3x/hf-espidf-project-tools.git scripts
 # For multiple projects, use shared tools
 mkdir -p ~/shared-esp32-tools
 cd ~/shared-esp32-tools
-git clone https://github.com/n3b3x/hf-espidf-project-tools.git .
+git clone https://github.com/hardfoc/hf-espidf-project-tools.git .
 
 # In each ESP-IDF project, use --project-path
 cd your-esp-idf-project

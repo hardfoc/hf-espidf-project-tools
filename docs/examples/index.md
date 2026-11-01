@@ -345,7 +345,7 @@ done
 - **[Getting Started](/docs/getting-started/)** - Basic setup guide
 - **[Configuration](/docs/configuration/)** - Configuration management
 - **[Troubleshooting](/docs/troubleshooting/)** - Common issues and solutions
-- **[GitHub Issues](https://github.com/n3b3x/hf-espidf-project-tools/issues)** - Report bugs or request features
+- **[GitHub Issues](https://github.com/hardfoc/hf-espidf-project-tools/issues)** - Report bugs or request features
 
 ---
 
