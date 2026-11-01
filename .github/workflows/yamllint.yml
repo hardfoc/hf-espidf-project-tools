@@ -3,15 +3,15 @@ name: 📚 YAML Lint
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main, develop ]
+    branches: [main, develop]
   workflow_dispatch:
 
 jobs:
   yamllint:
     name: YAML Lint
-    uses: hardfoc/hf-general-ci-tools/.github/workflows/yamllint-reusable.yml@main
+    uses: hardfoc/hf-general-ci-tools/.github/workflows/ru-yaml-lint.yml@main
     with:
       paths: '.github/workflows/*.yml,**/*.yml,**/*.yaml'
       config_file: '.yamllint'
