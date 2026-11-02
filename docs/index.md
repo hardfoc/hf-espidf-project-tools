@@ -1,158 +1,78 @@
 ---
-layout: default
-title: "📚 Documentation"
-description: "Development Scripts for HardFOC ESP-IDF Projects - Multi-application build system with intelligent configuration management for ESP-IDF development"
-nav_order: 1
-has_children: true
-permalink: /docs/
+hide:
+  - navigation
+  - toc
 ---
 
-# HardFOC ESP-IDF Project Tools
+<div class="hf-hero" markdown>
+<span class="hf-kicker">HardFOC tools</span>
 
-Welcome to the **HardFOC ESP-IDF Project Tools** - a comprehensive suite of development scripts designed to be **integrated into your existing ESP-IDF projects**. These tools enhance your ESP-IDF development workflow with multi-application build management, intelligent configuration, and automated development processes.
+# ESP-IDF Project Tools
 
-> **📋 Important**: These tools are meant to be **integrated into your ESP-IDF project**, not used as standalone applications. They work alongside your existing ESP-IDF project structure.
+<p>Shell and Python scripts that build, flash and monitor every app of a multi-app ESP-IDF project. The apps,
+ESP-IDF versions, build types and target are written once, in app_config.yml, and the same scripts run
+on your machine and in CI.</p>
 
-## 🚀 Integration Methods
+[Quickstart](quickstart.md){ .md-button .md-button--primary }
+[build_app.sh](build-app.md){ .md-button }
+[Source on GitHub](https://github.com/hardfoc/hf-espidf-project-tools){ .md-button }
+</div>
 
-Choose the best integration method for your ESP-IDF project:
+The scripts live inside your project, usually as a submodule at `examples/esp32/scripts`, next to the
+`app_config.yml` they read. Every HardFOC driver, `hf-core` and the board HALs use them for their ESP32 examples,
+and [hf-espidf-ci-tools](https://hardfoc.github.io/hf-espidf-ci-tools/) runs them in GitHub Actions.
 
-### Method 1: Submodule Integration (Recommended)
-```bash
-# Navigate to your ESP-IDF project
-cd your-esp-idf-project
+<!-- figure: tool-map -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/tool-map.dark.svg">
+  <img src="diagrams/tool-map.svg"
+    alt="Diagram: app_config.yml is read by config_loader.sh and by the Python scripts generate_matrix.py and
+    get_app_info.py; build_app.sh, flash_app.sh, manage_idf.sh and idf_flash_monitor.sh use them;
+    build_app.sh runs idf.py into a build folder under builds/; hf-espidf-ci-tools calls
+    generate_matrix.py and build_app.sh.">
+</picture>
+<!-- /figure -->
 
-# Add tools as submodule
-git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts
+## The scripts
 
-# Your project structure:
-# your-esp-idf-project/
-# ├── CMakeLists.txt
-# ├── app_config.yml
-# ├── main/
-# └── scripts/                    # Project tools
-#     ├── build_app.sh
-#     └── flash_app.sh
+| Script | What it does | Page |
+| --- | --- | --- |
+| `build_app.sh` | Builds one app for one build type and ESP-IDF version into its own folder under `builds/` | [build_app.sh](build-app.md) |
+| `flash_app.sh` | Flashes, monitors or sizes an app; builds it first when needed; finds the port; logs the monitor | [flash_app.sh](flash-app.md) |
+| `manage_idf.sh` | Installs, lists, exports and switches ESP-IDF versions under `~/esp` | [manage_idf.sh](manage-idf.md) |
+| `config_loader.sh` | Shell functions that read `app_config.yml`; sourced by the scripts above | [config_loader.sh](config-loader.md) |
+| `generate_matrix.py` | Turns `app_config.yml` into a GitHub Actions build matrix | [generate_matrix.py](generate-matrix.md) |
+| `get_app_info.py` | Prints an app's source file, the app list, or validates an app name | [get_app_info.py](get-app-info.md) |
+| `detect_ports.sh`, `watch_serial_port.sh`, `manage_logs.sh` | Find ESP32 serial ports, watch for plug events, read monitor logs | [Ports and logs](ports-and-logs.md) |
+| `setup_repo.sh`, `setup_basic.sh`, `setup_common.sh` | Set up a development machine; create a new project | [Setting up a machine](setup.md) |
+| `esp32_completion.sh`, `setup_tab_completion.sh` | Bash completion for `build_app.sh` and `flash_app.sh` | [Tab completion](tab-completion.md) |
 
-# Start building
-./scripts/build_app.sh your_app Release
-```
+## Where to go next
 
-### Method 2: Direct Clone Integration
-```bash
-# Navigate to your ESP-IDF project
-cd your-esp-idf-project
+<div class="grid cards" markdown>
 
-# Clone tools directly
-git clone https://github.com/hardfoc/hf-espidf-project-tools.git scripts
+-   :material-rocket-launch-outline: **[Quickstart](quickstart.md)**
 
-# Your project structure:
-# your-esp-idf-project/
-# ├── CMakeLists.txt
-# ├── app_config.yml
-# ├── main/
-# └── scripts/                    # Project tools
-#     ├── build_app.sh
-#     └── flash_app.sh
+    ---
 
-# Start building
-./scripts/build_app.sh your_app Release
-```
+    Add the scripts to a project, list one app, build and flash it.
 
-### Method 3: Shared Tools Directory
-```bash
-# For multiple projects, use shared tools
-mkdir -p ~/shared-esp32-tools
-cd ~/shared-esp32-tools
-git clone https://github.com/hardfoc/hf-espidf-project-tools.git .
+-   :material-file-cog-outline: **[app_config.yml](app-config.md)**
 
-# In each ESP-IDF project, use --project-path
-cd your-esp-idf-project
-~/shared-esp32-tools/build_app.sh --project-path . your_app Release
-```
+    ---
 
-## ✨ Key Features
+    Every key, its default and which script reads it.
 
-- **🔧 Multi-Application Build System** - Build multiple applications from a single ESP-IDF project
-- **📋 Intelligent Configuration** - YAML-based configuration management with `app_config.yml`
-- **📱 ESP32 Flash System** - Automated port detection and firmware flashing
-- **🔌 Multi-Device Support** - Intelligent handling of multiple ESP32 devices with interactive selection
-- **📊 Comprehensive Logging** - Detailed build and development logs
-- **🔍 Port Detection** - Cross-platform ESP32 device identification with device info display
-- **📚 Multi-Version ESP-IDF** - Support for multiple ESP-IDF versions
-- **🛠️ Development Scripts** - Build, flash, and utility management tools
+-   :material-hammer-wrench: **[build_app.sh](build-app.md)**
 
-## 📖 Documentation
+    ---
 
-Explore our comprehensive documentation:
+    Arguments, build folders, size files and the CMake variables it passes.
 
-- **[Getting Started](/docs/getting-started/)** - Quick start guide and installation
-- **[Build System](/docs/build-system/)** - Multi-application build management
-- **[Configuration](/docs/configuration/)** - YAML-based configuration system
-- **[Flash System](/docs/flash-system/)** - ESP32 flashing and monitoring
-- **[Logging System](/docs/logging-system/)** - Log management and analysis
-- **[CI Integration Patterns](/docs/ci-integration-patterns/)** - CI/CD integration patterns
-- **[Advanced Topics](/docs/advanced/multi-version-idf/)** - Advanced features and utilities
+-   :material-github: **[Using in CI](ci.md)**
 
-## 📁 Project Structure
+    ---
 
-### Typical ESP-IDF Project with Tools
-```
-your-esp-idf-project/
-├── CMakeLists.txt              # ESP-IDF project root
-├── app_config.yml              # Multi-app configuration
-├── main/                       # Your main application
-│   ├── main.cpp
-│   └── CMakeLists.txt
-├── components/                 # Your components
-│   └── your-component/
-└── scripts/                    # Project tools (integrated)
-    ├── build_app.sh
-    ├── flash_app.sh
-    ├── generate_matrix.py
-    └── config_loader.sh
-```
+    The matrix and the build in GitHub Actions.
 
-### CI/CD Integration Patterns
-
-#### Pattern 1: Submodule Setup (Recommended)
-```yaml
-# .github/workflows/build.yml
-jobs:
-  build:
-    uses: hardfoc/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
-    with:
-      project_dir: examples/esp32
-      project_tools_dir: examples/esp32/scripts  # Submodule path
-```
-
-#### Pattern 2: Shared Tools
-```yaml
-# .github/workflows/build.yml
-jobs:
-  build:
-    uses: hardfoc/hf-espidf-ci-tools/.github/workflows/ru-build.yml@v1
-    with:
-      project_dir: firmware/esp32
-      project_tools_dir: build-tools  # Shared tools directory
-```
-
-## 🎯 Perfect For
-
-- **Multi-Application ESP-IDF Projects** - Build multiple test applications from a single project
-- **Library Testing** - Test different aspects of your library with separate applications
-- **Development Workflows** - Streamlined build and flash processes for development
-- **Team Development** - Consistent development environments across teams
-- **CI/CD Integration** - Automated builds and testing in GitHub Actions
-
-## 🤝 Contributing
-
-We welcome contributions! See our [Contributing Guide](/docs/contributing/) for details.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/hardfoc/hf-espidf-project-tools/blob/main/LICENSE) file for details.
-
----
-
-**Ready to get started?** Check out our [Quick Start Guide](/docs/getting-started/) or browse the [Examples](/docs/examples/) to see the tools in action!
+</div>
