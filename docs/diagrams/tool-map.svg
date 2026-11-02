@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="688" viewBox="0 0 1200 688" role="img" aria-labelledby="tool-map-title tool-map-desc" font-family="Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<title id="tool-map-title">One configuration file, every script</title>
+<desc id="tool-map-desc">Diagram: app_config.yml is read by config_loader.sh and by the Python scripts generate_matrix.py and get_app_info.py; build_app.sh, flash_app.sh, manage_idf.sh and idf_flash_monitor.sh use them; build_app.sh runs idf.py into a build folder under builds/; hf-espidf-ci-tools calls generate_matrix.py and build_app.sh.</desc>
+<defs><marker id="fk-arrow-rail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8893A2"/></marker></defs>
+<rect x="0.5" y="0.5" width="1199" height="687" rx="16" fill="#FFFFFF" stroke="#E2E7EE"/>
+<text x="32" y="46.8" font-size="16" font-weight="700" letter-spacing="1.2" fill="#3730A3">TOOLS</text>
+<text x="32" y="85.6" font-size="32" font-weight="700" fill="#17202C">One configuration file, every script</text>
+<text x="32" y="115.4" font-size="18" fill="#566070">Apps, ESP-IDF versions, build types and target are written once, in app_config.yml.</text>
+<rect x="32" y="131.4" width="1136" height="1" fill="#E2E7EE"/>
+<rect x="32" y="407.4" width="1136" height="89" rx="16" fill="#EEF0FF" stroke="#C7CBF8" stroke-width="1.2"/>
+<path d="M316 242.4 L316 255.4 Q316 258.4 313 258.4 L313 258.4 Q310 258.4 310 261.4 L310 274.4" fill="none" stroke="#8893A2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<path d="M884 242.4 L884 255.4 Q884 258.4 887 258.4 L887 258.4 Q890 258.4 890 261.4 L890 274.4" fill="none" stroke="#8893A2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<path d="M310 371.4 L310 379.4 Q310 387.4 318 387.4 L592 387.4 Q600 387.4 600 395.4 L600 403.4" fill="none" stroke="#8893A2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<path d="M890 371.4 L890 379.4 Q890 387.4 882 387.4 L608 387.4 Q600 387.4 600 395.4 L600 403.4" fill="none" stroke="#8893A2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<path d="M316 500.4 L316 513.4 Q316 516.4 313 516.4 L313 516.4 Q310 516.4 310 519.4 L310 532.4" fill="none" stroke="#8893A2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<path d="M884 500.4 L884 513.4 Q884 516.4 887 516.4 L887 516.4 Q890 516.4 890 519.4 L890 532.4" fill="none" stroke="#8893A2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#fk-arrow-rail)"/>
+<rect x="32" y="149.4" width="1136" height="89" rx="12" fill="#E6F6F4" stroke="#0F8B80" stroke-width="1.4"/>
+<rect x="32" y="157.4" width="4" height="73" rx="2" fill="#0F8B80"/>
+<rect x="32" y="278.4" width="556" height="89" rx="12" fill="#EEF0FF" stroke="#4F46E5" stroke-width="1.4"/>
+<rect x="32" y="286.4" width="4" height="73" rx="2" fill="#4F46E5"/>
+<rect x="612" y="278.4" width="556" height="89" rx="12" fill="#EEF0FF" stroke="#4F46E5" stroke-width="1.4"/>
+<rect x="612" y="286.4" width="4" height="73" rx="2" fill="#4F46E5"/>
+<rect x="32" y="536.4" width="556" height="89" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="32" y="544.4" width="4" height="73" rx="2" fill="#64748B"/>
+<rect x="612" y="536.4" width="556" height="89" rx="12" fill="#FFFFFF" stroke="#C9D1DB" stroke-width="1"/>
+<rect x="612" y="544.4" width="4" height="73" rx="2" fill="#64748B"/>
+<text x="56" y="184.4" font-size="20" font-weight="700" fill="#115E59">app_config.yml</text>
+<text x="56" y="215" font-size="17" fill="#2B3442">metadata (target, idf_versions, build_types), apps, build_config</text>
+<text x="56" y="313.4" font-size="20" font-weight="700" fill="#3730A3">config_loader.sh</text>
+<text x="56" y="344" font-size="17" fill="#2B3442">sourced by the shell scripts; yq or grep fallback</text>
+<text x="636" y="313.4" font-size="20" font-weight="700" fill="#3730A3">generate_matrix.py, get_app_info.py</text>
+<text x="636" y="344" font-size="17" fill="#2B3442">CI matrix; source file of an app</text>
+<rect x="48" y="452.4" width="122.2" height="26" rx="13" fill="#EEF0FF" stroke="#C7CBF8" stroke-width="1"/>
+<text x="56" y="470.5" font-size="16" font-weight="700" fill="#3730A3">build_app.sh</text>
+<rect x="178.2" y="452.4" width="122.3" height="26" rx="13" fill="#EEF0FF" stroke="#C7CBF8" stroke-width="1"/>
+<text x="186.2" y="470.5" font-size="16" font-weight="700" fill="#3730A3">flash_app.sh</text>
+<rect x="308.4" y="452.4" width="138.4" height="26" rx="13" fill="#EEF0FF" stroke="#C7CBF8" stroke-width="1"/>
+<text x="316.4" y="470.5" font-size="16" font-weight="700" fill="#3730A3">manage_idf.sh</text>
+<rect x="454.8" y="452.4" width="185.7" height="26" rx="13" fill="#EEF0FF" stroke="#C7CBF8" stroke-width="1"/>
+<text x="462.8" y="470.5" font-size="16" font-weight="700" fill="#3730A3">idf_flash_monitor.sh</text>
+<text x="48" y="436.4" font-size="17" font-weight="700" fill="#3730A3">COMMANDS THAT READ IT</text>
+<text x="56" y="571.4" font-size="20" font-weight="700" fill="#17202C">idf.py (ESP-IDF in ~/esp)</text>
+<text x="56" y="602" font-size="17" fill="#2B3442">builds/build-app-&lt;app&gt;-type-&lt;build&gt;-target-&lt;t&gt;-idf-&lt;v&gt;</text>
+<text x="636" y="571.4" font-size="20" font-weight="700" fill="#17202C">hf-espidf-ci-tools ru-build</text>
+<text x="636" y="602" font-size="17" fill="#2B3442">generate_matrix.py, then build_app.sh per entry</text>
+<rect x="32" y="637.8" width="14" height="14" rx="4" fill="#E6F6F4" stroke="#0F8B80" stroke-width="1.4"/>
+<text x="54" y="652.4" font-size="16" fill="#566070">your project</text>
+<rect x="175.1" y="637.8" width="14" height="14" rx="4" fill="#EEF0FF" stroke="#4F46E5" stroke-width="1.4"/>
+<text x="197.1" y="652.4" font-size="16" fill="#566070">this repository</text>
+<rect x="336" y="637.8" width="14" height="14" rx="4" fill="#F1F4F8" stroke="#64748B" stroke-width="1.4"/>
+<text x="358" y="652.4" font-size="16" fill="#566070">ESP-IDF and CI</text>
+</svg>
