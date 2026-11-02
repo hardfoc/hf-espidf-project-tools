@@ -1,13 +1,4 @@
----
-layout: default
-title: "⚡ CI Pipeline"
-description: "CI/CD integration and automated build pipelines"
-nav_order: 3
-has_children: true
-permalink: /docs/ci-pipeline/
----
-
-# ⚡ CI Pipeline
+# CI Pipeline
 
 CI/CD integration and automated build pipelines for ESP-IDF projects using the HardFOC project tools.
 

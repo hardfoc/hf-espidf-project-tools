@@ -1,17 +1,8 @@
----
-layout: default
-title: "Examples"
-description: "Real-world examples and usage patterns for HardFOC ESP-IDF CI Tools"
-nav_order: 2
-parent: "📚 Reference"
-permalink: /docs/examples/
----
-
 # Examples
 
 This section provides real-world examples and usage patterns for the HardFOC ESP-IDF CI Tools.
 
-## 🚀 Quick Examples
+## Quick Examples
 
 ### Basic ESP-IDF Project
 
@@ -54,7 +45,7 @@ apps:
     build_types: ["Debug"]
 ```
 
-## 🔧 Workflow Examples
+## Workflow Examples
 
 ### Basic Build Workflow
 
@@ -120,7 +111,7 @@ jobs:
             path: .github/security
 ```
 
-## 📊 Advanced Examples
+## Advanced Examples
 
 ### Custom Build Types
 
@@ -189,7 +180,7 @@ metadata:
     path: examples/esp32/build/log/
 ```
 
-## 🎯 Use Case Examples
+## Use Case Examples
 
 ### IoT Sensor Node
 
@@ -234,7 +225,7 @@ apps:
     ci_enabled: true
 ```
 
-## 🔌 Multi-Device Examples
+## Multi-Device Examples
 
 ### Listing Available Devices
 
@@ -297,7 +288,7 @@ done
     ./scripts/flash_app.sh --port $PORT flash gpio_test Release
 ```
 
-## 🔍 Testing Examples
+## Testing Examples
 
 ### Unit Testing
 
@@ -330,7 +321,7 @@ done
     ./scripts/benchmark.sh performance_test
 ```
 
-## 📚 More Examples
+## More Examples
 
 ### Project Templates
 
@@ -340,7 +331,7 @@ done
 
 *Note: Example workflow templates will be added in future releases. Use the workflow examples in the code blocks above as starting points.*
 
-## 🆘 Need Help?
+## Need Help?
 
 - **[Getting Started](/docs/getting-started/)** - Basic setup guide
 - **[Configuration](/docs/configuration/)** - Configuration management

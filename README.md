@@ -1,12 +1,4 @@
----
-layout: default
-title: "HardFOC ESP-IDF Project Tools"
-description: "Development scripts for ESP-IDF projects with multiple applications - Multi-application build system with intelligent configuration management for ESP-IDF development"
-nav_order: 1
-permalink: /
----
-
-# 🔧 HardFOC ESP-IDF Project Tools
+# HardFOC ESP-IDF Project Tools
 
 ![Scripts](https://img.shields.io/badge/Scripts-Development%20Tools-blue?logo=bash)
 [![ESP-IDF](https://img.shields.io/badge/ESP--IDF-Multi%20App%20Builds-green?logo=espressif&logoColor=white)](https://docs.espressif.com/projects/esp-idf/en/latest/)
@@ -20,7 +12,7 @@ permalink: /
 
 ---
 
-## 🎯 **What This Is**
+## **What This Is**
 
 Development scripts that enhance ESP-IDF projects with:
 - **Multi-application builds** from a single project
@@ -28,7 +20,7 @@ Development scripts that enhance ESP-IDF projects with:
 - **Automated CI/CD integration** patterns
 - **Cross-platform port detection** and flashing
 
-## 🚀 **Quick Start**
+## **Quick Start**
 
 ### **Integration Methods**
 
@@ -79,7 +71,7 @@ cd your-esp-idf-project
 ~/shared-esp32-tools/build_app.sh --project-path . your_app Release
 ```
 
-## 📁 **Project Structure Concepts**
+## **Project Structure Concepts**
 
 ### **Project Directory (`project_dir`)**
 - **Purpose**: Points to your ESP-IDF project directory (contains `CMakeLists.txt`, `app_config.yml`)
@@ -91,7 +83,7 @@ cd your-esp-idf-project
 - **Multi-Project Support**: Can be shared across multiple projects since all scripts accept `--project-path` argument
 - **Examples**: `examples/esp32/scripts`, `examples/esp32/hf-espidf-project-tools`, `tools/esp32-build-scripts`, `shared-tools`
 
-## 🔧 **Common Integration Patterns**
+## **Common Integration Patterns**
 
 ### **Pattern 1: Submodule Setup (Recommended)**
 ```bash
@@ -183,7 +175,7 @@ jobs:
       project_tools_dir: shared-tools  # Same shared tools directory
 ```
 
-## 🛠️ **Core Scripts**
+## **Core Scripts**
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
@@ -192,7 +184,7 @@ jobs:
 | `generate_matrix.py` | CI matrix generation | `python3 scripts/generate_matrix.py` |
 | `config_loader.sh` | Configuration utilities | Source for other scripts |
 
-## 📊 **Configuration**
+## **Configuration**
 
 All scripts use `app_config.yml` for configuration:
 
@@ -210,7 +202,7 @@ apps:
     build_types: [["Debug", "Release"]]
 ```
 
-## 🔗 **CI/CD Integration**
+## **CI/CD Integration**
 
 Works with the [ESP-IDF CI Tools](https://github.com/hardfoc/hf-espidf-ci-tools) for automated builds:
 
@@ -222,7 +214,7 @@ Works with the [ESP-IDF CI Tools](https://github.com/hardfoc/hf-espidf-ci-tools)
     project_tools_dir: examples/esp32/scripts
 ```
 
-## 📚 **Documentation**
+## **Documentation**
 
 - **[Getting Started](https://hardfoc.github.io/hf-espidf-project-tools/docs/getting-started/)** - Quick start guide
 - **[CI Integration Patterns](https://hardfoc.github.io/hf-espidf-project-tools/docs/ci-integration-patterns/)** - CI/CD patterns
@@ -230,16 +222,16 @@ Works with the [ESP-IDF CI Tools](https://github.com/hardfoc/hf-espidf-ci-tools)
 - **[Configuration](https://hardfoc.github.io/hf-espidf-project-tools/docs/configuration/)** - YAML configuration
 - **[Examples](https://hardfoc.github.io/hf-espidf-project-tools/docs/examples/)** - Real-world examples
 
-## 🧪 **Testing**
+## **Testing**
 
 - **[Test Scripts](tests/)** - Test suite for script functionality
   - `test_tab_completion.sh` - Comprehensive tab completion tests
   - `demo_tab_completion.sh` - Interactive tab completion demo
 
-## 🤝 **Contributing**
+## **Contributing**
 
 Contributions welcome! See our [Contributing Guide](https://hardfoc.github.io/hf-espidf-project-tools/docs/contributing/) for details.
 
-## 📄 **License**
+## **License**
 
 This project is licensed under the GPL-3.0 License - see the [LICENSE](./LICENSE) file for details.

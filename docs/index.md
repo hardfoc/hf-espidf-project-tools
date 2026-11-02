@@ -1,19 +1,10 @@
----
-layout: default
-title: "📚 Documentation"
-description: "Development Scripts for HardFOC ESP-IDF Projects - Multi-application build system with intelligent configuration management for ESP-IDF development"
-nav_order: 1
-has_children: true
-permalink: /docs/
----
-
 # HardFOC ESP-IDF Project Tools
 
 Welcome to the **HardFOC ESP-IDF Project Tools** - a comprehensive suite of development scripts designed to be **integrated into your existing ESP-IDF projects**. These tools enhance your ESP-IDF development workflow with multi-application build management, intelligent configuration, and automated development processes.
 
 > **📋 Important**: These tools are meant to be **integrated into your ESP-IDF project**, not used as standalone applications. They work alongside your existing ESP-IDF project structure.
 
-## 🚀 Integration Methods
+## Integration Methods
 
 Choose the best integration method for your ESP-IDF project:
 
@@ -71,7 +62,7 @@ cd your-esp-idf-project
 ~/shared-esp32-tools/build_app.sh --project-path . your_app Release
 ```
 
-## ✨ Key Features
+## Key Features
 
 - **🔧 Multi-Application Build System** - Build multiple applications from a single ESP-IDF project
 - **📋 Intelligent Configuration** - YAML-based configuration management with `app_config.yml`
@@ -82,7 +73,7 @@ cd your-esp-idf-project
 - **📚 Multi-Version ESP-IDF** - Support for multiple ESP-IDF versions
 - **🛠️ Development Scripts** - Build, flash, and utility management tools
 
-## 📖 Documentation
+## Documentation
 
 Explore our comprehensive documentation:
 
@@ -94,7 +85,7 @@ Explore our comprehensive documentation:
 - **[CI Integration Patterns](/docs/ci-integration-patterns/)** - CI/CD integration patterns
 - **[Advanced Topics](/docs/advanced/multi-version-idf/)** - Advanced features and utilities
 
-## 📁 Project Structure
+## Project Structure
 
 ### Typical ESP-IDF Project with Tools
 ```
@@ -137,7 +128,7 @@ jobs:
       project_tools_dir: build-tools  # Shared tools directory
 ```
 
-## 🎯 Perfect For
+## Perfect For
 
 - **Multi-Application ESP-IDF Projects** - Build multiple test applications from a single project
 - **Library Testing** - Test different aspects of your library with separate applications
@@ -145,11 +136,11 @@ jobs:
 - **Team Development** - Consistent development environments across teams
 - **CI/CD Integration** - Automated builds and testing in GitHub Actions
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! See our [Contributing Guide](/docs/contributing/) for details.
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/hardfoc/hf-espidf-project-tools/blob/main/LICENSE) file for details.
 

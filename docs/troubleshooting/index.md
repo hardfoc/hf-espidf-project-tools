@@ -1,17 +1,8 @@
----
-layout: default
-title: "Troubleshooting"
-description: "Common issues and solutions for HardFOC ESP-IDF CI Tools"
-nav_order: 3
-parent: "📚 Reference"
-permalink: /docs/troubleshooting/
----
-
 # Troubleshooting Guide
 
 This guide helps you resolve common issues with the HardFOC ESP-IDF CI Tools.
 
-## 🔍 Common Issues
+## Common Issues
 
 ### Build Failures
 
@@ -143,7 +134,7 @@ This guide helps you resolve common issues with the HardFOC ESP-IDF CI Tools.
    ```
 3. **Label your devices** physically based on port/serial number
 
-## 🛠️ Debugging
+## Debugging
 
 ### Enable Debug Mode
 
@@ -186,7 +177,7 @@ cd /examples/esp32
 ./scripts/flash_app.sh --port /dev/ttyACM0 monitor
 ```
 
-## 📋 Diagnostic Checklist
+## Diagnostic Checklist
 
 ### Pre-Flight Checks
 
@@ -212,7 +203,7 @@ cd /examples/esp32
 - [ ] **Triggers** are set up correctly
 - [ ] **Permissions** are sufficient
 
-## 🆘 Getting Help
+## Getting Help
 
 ### Self-Service Resources
 
@@ -234,7 +225,7 @@ For enterprise or complex issues:
 - **Request consultation** for custom setups
 - **Submit feature requests** for specific needs
 
-## 📚 Additional Resources
+## Additional Resources
 
 - **[Build System](/docs/build-system/)** - Detailed build documentation
 - **[CI Pipeline](/docs/ci-pipeline/)** - Workflow optimization

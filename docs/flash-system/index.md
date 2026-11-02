@@ -1,21 +1,12 @@
----
-layout: default
-title: "Flash System"
-description: "ESP-IDF flash system with intelligent port detection, firmware flashing, and monitoring"
-nav_order: 3
-parent: "🔧 Core Systems"
-permalink: /docs/flash-system/
----
-
 # ESP-IDF Flash System Guide
 
 This document provides comprehensive documentation for the ESP-IDF flash system, including port
 detection, firmware flashing, monitoring, and troubleshooting.
 
-## 📋 **Table of Contents**
+## **Table of Contents**
 
 
-## 📋 **Overview**
+## **Overview**
 
 The ESP-IDF flash system is a comprehensive solution for firmware deployment, device monitoring,
 and development workflow management.
@@ -37,7 +28,7 @@ and integrated logging for professional ESP-IDF development.
 - Port connectivity testing and troubleshooting
 - Cross-platform serial port management
 
-## 🏗️ **Architecture and Design**
+## **Architecture and Design**
 
 ### **System Architecture**
 ```
@@ -61,7 +52,7 @@ Specification  Validation     & Port         Commands        & Control
 - **Cross-Platform Consistency**: Uniform behavior across operating systems
 - **User Experience**: Clear error messages and troubleshooting guidance
 
-## 🔌 **Port Detection and Management**
+## **Port Detection and Management**
 
 ### **Automatic Device Detection**
 
@@ -218,7 +209,7 @@ Searching for ESP32 devices...
 Found single ESP32 device: /dev/ttyACM0
 Using port: /dev/ttyACM0
 ```
-## ⚡ **Flash Operations and Workflows**
+## **Flash Operations and Workflows**
 
 ### **Operation Types**
 
@@ -325,7 +316,7 @@ The size operation provides comprehensive firmware analysis without requiring de
 - **No Port Required**: Works without device connection
 - **Smart Build Detection**: Automatically finds correct build directory
 
-## 📺 **Monitoring and Logging**
+## **Monitoring and Logging**
 
 ### **Integrated Logging System**
 
@@ -390,7 +381,7 @@ gpio_test_Release_20250115_143022.log
 ./manage_logs.sh search "ERROR" # Search for errors
 ./manage_logs.sh stats         # Log statistics
 ```
-## 🚀 **Usage Examples and Patterns**
+## **Usage Examples and Patterns**
 
 ### **Basic Flash Workflows**
 
@@ -529,7 +520,7 @@ fi
     ./scripts/flash_app.sh monitor --log ci_verify
     timeout 30s ./scripts/flash_app.sh monitor --log ci_verify
 ```
-## 🔍 **Troubleshooting and Debugging**
+## **Troubleshooting and Debugging**
 
 ### **Common Flash Issues**
 
@@ -636,7 +627,7 @@ export IDF_VERBOSE=1
 ./manage_logs.sh search "ESP32"
 ./manage_logs.sh search "boot"
 ```
-## 📚 **Reference and Examples**
+## **Reference and Examples**
 
 ### **Command Reference**
 

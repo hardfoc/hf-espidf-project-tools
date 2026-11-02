@@ -1,12 +1,3 @@
----
-layout: default
-title: "Centralized Configuration"
-description: "Centralized configuration system with YAML management, validation, and smart defaults"
-nav_order: 1
-parent: "Configuration System"
-permalink: /docs/configuration/centralized/
----
-
 # Centralized Configuration Guide
 
 This document provides comprehensive documentation for the centralized configuration system,
@@ -15,10 +6,10 @@ with the ESP-IDF development workflow.
 
 ---
 
-## 📋 **Table of Contents**
+## **Table of Contents**
 
 
-## 📋 **Overview**
+## **Overview**
 
 The centralized configuration system provides a unified approach to managing ESP-IDF project settings,
 application configurations, and build parameters.
@@ -39,7 +30,7 @@ enabling consistent configuration management across different scripts and develo
 - Integration with CMake and CI/CD systems
 - Support for multiple ESP-IDF versions and targets
 
-## 🏗️ **Architecture and Design**
+## **Architecture and Design**
 
 ### **System Architecture**
 ```yaml
@@ -61,7 +52,7 @@ Configuration System → YAML Parser → Validation Engine → Script Integratio
 - **Performance Optimized**: Efficient loading and caching mechanisms
 - **Integration Ready**: Seamless integration with development workflows
 
-## ⚙️ **Configuration File Structure**
+## **Configuration File Structure**
 
 ### **File Location and Naming**
 ```bash
@@ -252,7 +243,7 @@ system_config:
   ide_integration: true
 ```
 
-## 🔧 **Configuration Loading and Validation**
+## **Configuration Loading and Validation**
 
 ### **Configuration Loading Process**
 
@@ -473,7 +464,7 @@ validate_config_integrity() {
     fi
 }
 ```
-## 🌍 **Environment Variable Overrides**
+## **Environment Variable Overrides**
 
 ### **Override Priority System**
 
@@ -650,7 +641,7 @@ reload_config() {
     echo "Configuration reloaded successfully"
 }
 ```
-## 🚀 **Usage Examples and Patterns**
+## **Usage Examples and Patterns**
 
 ### **Basic Configuration Usage**
 
@@ -857,7 +848,7 @@ echo "  Target: $target"
 echo "  Build Type: $build_type"
 echo "  Debug Mode: $debug_mode"
 ```
-## 🔍 **Troubleshooting and Debugging**
+## **Troubleshooting and Debugging**
 
 ### **Common Configuration Issues**
 
@@ -983,7 +974,7 @@ test_config_loading() {
 ## Run configuration test
 test_config_loading
 ```
-## 📚 **Reference and Examples**
+## **Reference and Examples**
 
 ### **Configuration Function Reference**
 

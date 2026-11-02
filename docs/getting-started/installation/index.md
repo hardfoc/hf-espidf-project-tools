@@ -1,17 +1,8 @@
----
-layout: default
-title: "Installation"
-description: "Detailed installation guide for HardFOC ESP-IDF Project Tools"
-nav_order: 1
-parent: "Getting Started"
-permalink: /docs/getting-started/installation/
----
-
 # Installation Guide
 
 This guide provides detailed instructions for installing and setting up the HardFOC ESP-IDF Project Tools in your ESP-IDF project.
 
-## 📋 Prerequisites
+## Prerequisites
 
 ### System Requirements
 
@@ -42,7 +33,7 @@ your-repository/
 - **Python**: 3.8 or later
 - **CMake**: 3.16 or later
 
-## 🔧 Installation Methods
+## Installation Methods
 
 ### Method 1: Direct Copy (Recommended)
 
@@ -99,7 +90,7 @@ For offline or restricted environments:
 3. **Copy** workflow files to your project
 4. **Manually configure** as needed
 
-## ⚙️ Configuration
+## Configuration
 
 ### Basic Configuration
 
@@ -135,7 +126,7 @@ For more complex setups, see:
 - **[Build System](build-system/)** - ESP-IDF build optimization
 - **[CI Pipeline](ci-pipeline/)** - Workflow customization
 
-## 🔍 Verification
+## Verification
 
 ### Test Installation
 
@@ -165,7 +156,7 @@ If you encounter issues:
 - **Review GitHub Actions logs** for specific errors
 - **See [Troubleshooting](troubleshooting/)** for common issues
 
-## 🚀 Next Steps
+## Next Steps
 
 After successful installation:
 
@@ -174,7 +165,7 @@ After successful installation:
 3. **[CI Pipeline](ci-pipeline/)** - Optimize your workflows
 4. **[Advanced Topics](advanced/multi-version-idf/)** - Explore advanced features
 
-## 📚 Additional Resources
+## Additional Resources
 
 - **[GitHub Repository](https://github.com/hardfoc/hf-espidf-project-tools)** - Source code and issues
 - **[Examples](examples/)** - Real-world usage examples

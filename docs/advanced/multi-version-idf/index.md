@@ -1,12 +1,3 @@
----
-layout: default
-title: "Multi-Version ESP-IDF Support"
-description: "Support for multiple ESP-IDF versions with intelligent version management"
-nav_order: 1
-parent: "🔬 Advanced Topics"
-permalink: /docs/advanced/multi-version-idf/
----
-
 # Multi-Version ESP-IDF Support
 
 This document explains how the ESP32 HardFOC Interface Wrapper supports multiple ESP-IDF versions

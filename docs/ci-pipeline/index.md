@@ -1,23 +1,14 @@
----
-layout: default
-title: "CI Pipeline Usage"
-description: "Using the ESP-IDF CI pipeline from the separate CI tools repository"
-nav_order: 1
-parent: "⚡ CI Pipeline"
-permalink: /docs/ci-pipeline/
----
-
 # ESP-IDF CI Pipeline Usage
 
 This document explains how to use the ESP-IDF CI pipeline from the separate CI tools repository for automated building and testing of your multi-application ESP-IDF projects.
 
-## 📋 **Overview**
+## **Overview**
 
 The CI pipeline has been moved to a separate repository: **[hardfoc/hf-espidf-ci-tools](https://github.com/hardfoc/hf-espidf-ci-tools)**
 
 This repository contains the development scripts, while the CI pipeline is maintained separately for better organization and reusability.
 
-## 🚀 **Quick Setup**
+## **Quick Setup**
 
 ### 1. Add CI Workflow to Your Project
 
@@ -86,7 +77,7 @@ apps:
     target: "esp32c6"
 ```
 
-## 🔧 **CI Pipeline Features**
+## **CI Pipeline Features**
 
 The CI pipeline provides:
 
@@ -96,7 +87,7 @@ The CI pipeline provides:
 - **Size Budgets**: Optional enforcement of firmware size limits
 - **Artifact Management**: Automatic upload of build artifacts
 
-## 📊 **Size Reporting**
+## **Size Reporting**
 
 The CI pipeline automatically generates size reports for pull requests:
 
@@ -105,7 +96,7 @@ The CI pipeline automatically generates size reports for pull requests:
 | main_app | v5.5 | esp32c6 | Debug | `text: 12345 data: 678 bss: 90` |
 | test_app | v5.5 | esp32c6 | Debug | `text: 9876 data: 543 bss: 45` |
 
-## 🛠️ **Advanced Configuration**
+## **Advanced Configuration**
 
 ### Size Budget Enforcement
 
@@ -137,13 +128,13 @@ jobs:
 
 **Important:** The `.github` directory must always be at the repository root, not inside the ESP-IDF project directory.
 
-## 🔗 **Related Documentation**
+## **Related Documentation**
 
 - **[Build System](/docs/build-system/)** - Understanding the multi-application build system
 - **[Configuration](/docs/configuration/)** - Configuring your `app_config.yml`
 - **[Getting Started](/docs/getting-started/)** - Setting up your development environment
 
-## 🤝 **Support**
+## **Support**
 
 For CI pipeline issues or feature requests, please visit the [CI Tools Repository](https://github.com/hardfoc/hf-espidf-ci-tools/issues).
 

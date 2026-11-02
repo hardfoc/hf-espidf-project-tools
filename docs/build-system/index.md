@@ -1,21 +1,12 @@
----
-layout: default
-title: "Build System"
-description: "ESP-IDF build system with intelligent configuration management, validation, and optimization"
-nav_order: 1
-parent: "🔧 Core Systems"
-permalink: /docs/build-system/
----
-
 # ESP-IDF Build System Guide
 
 This document provides comprehensive documentation for the ESP-IDF build system, including
 architecture, configuration, usage patterns, and troubleshooting.
 
-## 📋 **Table of Contents**
+## **Table of Contents**
 
 
-## 📋 **Overview**
+## **Overview**
 
 The ESP-IDF build system is a configuration-driven,
 intelligent build management solution designed for ESP-IDF projects with multiple applications.
@@ -42,7 +33,7 @@ and optimized build processes for building different applications from a single 
 - Build cache management and optimization
 - Comprehensive error reporting and troubleshooting
 
-## 🏗️ **Architecture and Design**
+## **Architecture and Design**
 
 ### **System Architecture**
 ```yaml
@@ -67,7 +58,7 @@ Definitions      Fallbacks        & Execution    Process  & Artifacts
 
 ---
 
-## 🛡️ **Enhanced Validation System**
+## **Enhanced Validation System**
 
 The build system now includes a comprehensive validation system that prevents invalid build
 combinations and provides clear guidance to users.
@@ -79,7 +70,7 @@ combinations and provides clear guidance to users.
 - **💡 Smart Error Messages** - Clear guidance on what combinations are allowed
 - **🧠 Smart Defaults** - Automatic ESP-IDF version selection when not specified
 
-### **✅ OPTIMIZED Validation Flow**
+### ** OPTIMIZED Validation Flow**
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -135,7 +126,7 @@ combinations and provides clear guidance to users.
 
 The build system now includes several new commands for better user experience:
 
-#### **📋 Information Commands**
+#### ** Information Commands**
 ```bash
 ## Show detailed information for a specific app
 ./scripts/build_app.sh info gpio_test
@@ -147,7 +138,7 @@ The build system now includes several new commands for better user experience:
 ./scripts/build_app.sh validate gpio_test Release
 ./scripts/build_app.sh validate gpio_test Release release/v5.4
 ```
-#### **🛡️ Validation Examples**
+#### ** Validation Examples**
 ```bash
 ## Valid combination - proceeds with build
 ./scripts/build_app.sh validate gpio_test Release
@@ -158,7 +149,7 @@ The build system now includes several new commands for better user experience:
 ##        Valid combinations for 'gpio_test':
 ##        • release/v5.5: Debug Release
 ```
-#### **🧠 Smart Default Examples**
+#### ** Smart Default Examples**
 ```bash
 ## No IDF version specified - uses smart default
 ./scripts/build_app.sh gpio_test Release
@@ -169,7 +160,7 @@ The build system now includes several new commands for better user experience:
 ## Output: Uses specified version directly
 ```
 
-## ⚙️ **Configuration System**
+## **Configuration System**
 
 ### **Configuration File Structure**
 The build system reads from `/examples/esp32/app_config.yml`:
@@ -239,7 +230,7 @@ The build system automatically validates:
 - ✅ Required dependencies and tools
 - ✅ Configuration file integrity and syntax
 
-## 🔧 **Build Process and Workflow**
+## **Build Process and Workflow**
 
 ### **Build Execution Flow**
 1. Configuration Loading → 2. Source File Discovery → 3. Parameter Validation → 4. Environment Setup → 5. Build Execution → 6. Output Generation
@@ -315,7 +306,7 @@ The build system automatically validates:
 - **Assertions**: Disabled for performance
 - **Logging**: Production-level logging only
 
-## 🚀 **Usage Examples and Patterns**
+## **Usage Examples and Patterns**
 
 ### **Basic Build Workflows**
 
@@ -409,7 +400,7 @@ builds/build-app-gpio_test-type-Release-target-esp32c6-idf-release_v5_5/
 - **`.map`**: Memory layout and symbol information
 - **`.hex`**: Intel HEX format for some tools
 
-## 🚀 **CI Pipeline Integration and Optimization**
+## **CI Pipeline Integration and Optimization**
 
 ### **CI Build Architecture**
 - **Parallel Matrix Execution**: Multiple build combinations run simultaneously
@@ -442,7 +433,7 @@ export ESP32_PROJECT_PATH="/examples/esp32"
 export IDF_CCACHE_ENABLE=1
 export CCACHE_DIR="$HOME/.ccache"
 ```
-## ⚡ **Performance and Optimization**
+## **Performance and Optimization**
 
 ### **Build Acceleration Features**
 
@@ -496,7 +487,7 @@ ccache -s
 - **Disk I/O**: File system access patterns
 - **Network Usage**: Dependency download bandwidth
 
-## 🔍 **Troubleshooting and Debugging**
+## **Troubleshooting and Debugging**
 
 ### **Common Build Issues**
 
@@ -594,7 +585,7 @@ cat builds/build-app-gpio_test-type-Release-target-esp32c6-idf-release_v5_5/log/
 - **Build Failures**: Check for compilation or linking errors
 - **Performance Issues**: Monitor build time and resource usage
 
-## 📚 **Reference and Examples**
+## **Reference and Examples**
 
 ### **Command Reference**
 

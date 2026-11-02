@@ -1,17 +1,8 @@
----
-layout: default
-title: "Configuration"
-description: "Configuration guide for HardFOC ESP-IDF CI Tools"
-nav_order: 2
-parent: "Getting Started"
-permalink: /docs/getting-started/configuration/
----
-
 # Configuration Guide
 
 This guide explains how to configure the HardFOC ESP-IDF CI Tools for your specific project needs.
 
-## 📋 Overview
+## Overview
 
 The HardFOC ESP-IDF CI Tools use a centralized configuration system that allows you to:
 
@@ -20,7 +11,7 @@ The HardFOC ESP-IDF CI Tools use a centralized configuration system that allows 
 - **Configure build types** (Debug, Release)
 - **Set up CI/CD parameters** for GitHub Actions
 
-## ⚙️ Basic Configuration
+## Basic Configuration
 
 ### 1. Project Structure
 
@@ -118,7 +109,7 @@ jobs:
         app_path: /examples/esp32
 ```
 
-## 🔧 Advanced Configuration
+## Advanced Configuration
 
 ### Multi-Version ESP-IDF Support
 
@@ -175,7 +166,7 @@ export CONFIG_DEFAULT_BUILD_TYPE="Debug"
 export CONFIG_DEFAULT_IDF_VERSION="release/v5.4"
 ```
 
-## 🚀 CI/CD Configuration
+## CI/CD Configuration
 
 ### GitHub Actions Secrets
 
@@ -217,7 +208,7 @@ strategy:
         idf_version: "release/v5.4"
 ```
 
-## 🔍 Validation
+## Validation
 
 ### Configuration Validation
 
@@ -244,7 +235,7 @@ npm install -g @nektos/act
 act -j build
 ```
 
-## 📚 Next Steps
+## Next Steps
 
 After configuration:
 
@@ -253,7 +244,7 @@ After configuration:
 3. **[Advanced Topics](advanced/multi-version-idf/)** - Explore advanced features
 4. **[Troubleshooting](troubleshooting/)** - Common issues and solutions
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 Common configuration issues:
 

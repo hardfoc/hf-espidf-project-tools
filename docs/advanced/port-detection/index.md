@@ -1,22 +1,13 @@
----
-layout: default
-title: "Port Detection"
-description: "ESP-IDF port detection system with cross-platform device identification and troubleshooting"
-nav_order: 2
-parent: "🔬 Advanced Topics"
-permalink: /docs/advanced/port-detection/
----
-
 # ESP-IDF Port Detection Guide
 
 This document provides comprehensive documentation for the ESP-IDF port detection system, including
 cross-platform device identification, troubleshooting, and integration with the development
 workflow.
 
-## 📋 **Table of Contents**
+## **Table of Contents**
 
 
-## 📋 **Overview**
+## **Overview**
 
 The ESP-IDF port detection system provides intelligent,
 cross-platform device identification and troubleshooting capabilities.
@@ -38,7 +29,7 @@ and provides comprehensive troubleshooting guidance for common connectivity issu
 - Connection stability testing and validation
 - Comprehensive troubleshooting and diagnostic information
 
-## 🏗️ **Architecture and Design**
+## **Architecture and Design**
 
 ### **System Architecture**
 ```
@@ -61,7 +52,7 @@ Detection        & Optimization     & Identification   Testing         & Guidanc
 - **User Experience**: Clear feedback and actionable troubleshooting guidance
 - **Integration Ready**: Seamless integration with development workflows
 
-## 🔌 **Cross-Platform Detection**
+## **Cross-Platform Detection**
 
 ### **Linux Port Detection**
 
@@ -211,7 +202,7 @@ ls /dev/ttyUSB*
 ## Check Windows device sharing
 ## Ensure USB devices are shared with WSL2
 ```
-## 🔍 **Port Validation and Testing**
+## **Port Validation and Testing**
 
 ### **Connectivity Testing**
 
@@ -316,7 +307,7 @@ newgrp dialout
 - FTDI: FTDI (excellent compatibility)
 - CDC ACM: Native USB (modern devices)
 ```
-## ⚙️ **Configuration and Customization**
+## **Configuration and Customization**
 
 ### **Environment Variables**
 
@@ -412,7 +403,7 @@ detect_ports:
     reports:
       junit: port_detection_report.xml
 ```
-## 🚀 **Usage Examples and Patterns**
+## **Usage Examples and Patterns**
 
 ### **Basic Port Detection Workflows**
 
@@ -534,7 +525,7 @@ cd /examples/esp32
 ./flash_app.sh gpio_test Release flash_monitor
 ./manage_logs.sh search "ERROR"
 ```
-## 🔧 **Troubleshooting and Debugging**
+## **Troubleshooting and Debugging**
 
 ### **Common Port Issues**
 
@@ -675,7 +666,7 @@ export PORT_DEBUG=1
 - Connection testing details
 - Error resolution attempts
 ```
-## 📚 **Reference and Examples**
+## **Reference and Examples**
 
 ### **Command Reference**
 

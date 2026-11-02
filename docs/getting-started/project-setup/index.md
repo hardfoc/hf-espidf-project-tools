@@ -1,13 +1,4 @@
----
-layout: default
-title: "Project Setup"
-description: "Automated ESP-IDF project setup with hf-espidf-project-tools"
-nav_order: 3
-parent: "Getting Started"
-permalink: /docs/getting-started/project-setup/
----
-
-# 🚀 Project Setup
+# Project Setup
 
 The `setup_basic.sh` script automates the creation of a complete ESP-IDF project with all necessary configuration files, build system setup, and the tools repository integration.
 

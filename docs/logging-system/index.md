@@ -1,21 +1,12 @@
----
-layout: default
-title: "Logging System"
-description: "ESP-IDF logging system with comprehensive log capture, management, and analysis"
-nav_order: 4
-parent: "🔧 Core Systems"
-permalink: /docs/logging-system/
----
-
 # ESP-IDF Logging System Guide
 
 This document provides comprehensive documentation for the ESP-IDF logging system, including log
 generation, management, analysis, and integration with all scripts.
 
-## 📋 **Table of Contents**
+## **Table of Contents**
 
 
-## 📋 **Overview**
+## **Overview**
 
 The ESP-IDF logging system provides comprehensive log capture, management,
 and analysis capabilities for all development operations.
@@ -37,7 +28,7 @@ and seamless integration with the build and flash systems.
 - Integration with all ESP32 development scripts
 - Professional log formatting and organization
 
-## 🏗️ **Architecture and Design**
+## **Architecture and Design**
 
 ### **System Architecture**
 ```
@@ -61,7 +52,7 @@ Operations      Capture       Storage       & Rotation     & Analysis
 - **Performance Optimized**: Minimal impact on script execution
 - **Cross-Platform**: Consistent behavior across operating systems
 
-## 📝 **Log Generation and Capture**
+## **Log Generation and Capture**
 
 ### **Automatic Log Generation**
 
@@ -155,7 +146,7 @@ Logging integrates with all major systems:
 - Environment setup
 - Error handling
 ```
-## 🗂️ **Log Management and Organization**
+## **Log Management and Organization**
 
 ### **Log Directory Structure**
 
@@ -228,7 +219,7 @@ The system automatically organizes logs:
 - Configurable retention policies
 - Storage usage monitoring
 ```
-## 🔍 **Log Analysis and Search**
+## **Log Analysis and Search**
 
 ### **Cross-Log Search**
 
@@ -294,7 +285,7 @@ The search system provides powerful capabilities:
 - Common pattern identification
 - Change tracking
 ```
-## 🚀 **Usage Examples and Patterns**
+## **Usage Examples and Patterns**
 
 ### **Basic Log Management**
 
@@ -411,7 +402,7 @@ echo "Successful operations: $success_ops"
 echo "Failed operations: $error_ops"
 echo "Success rate: $((success_ops * 100 / total_ops))%"
 ```
-## 🔧 **Integration and Automation**
+## **Integration and Automation**
 
 ### **Script Integration**
 
@@ -519,7 +510,7 @@ echo "Old logs have been archived" >> cleanup_report.txt
 ## Send cleanup report
 mail -s "ESP32 Log Cleanup Report" admin@example.com < cleanup_report.txt
 ```
-## 🔍 **Troubleshooting and Debugging**
+## **Troubleshooting and Debugging**
 
 ### **Common Log Issues**
 
@@ -642,7 +633,7 @@ debug_log_system() {
 ## Search in specific time range
 ./manage_logs.sh search "ERROR" --since "2025-01-15"
 ```
-## 📚 **Reference and Examples**
+## **Reference and Examples**
 
 ### **Command Reference**
 

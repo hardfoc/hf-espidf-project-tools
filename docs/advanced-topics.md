@@ -1,13 +1,4 @@
----
-layout: default
-title: "🔬 Advanced Topics"
-description: "Advanced features and technical deep-dives"
-nav_order: 4
-has_children: true
-permalink: /docs/advanced-topics/
----
-
-# 🔬 Advanced Topics
+# Advanced Topics
 
 Advanced features and technical deep-dives for power users and complex development scenarios.
 

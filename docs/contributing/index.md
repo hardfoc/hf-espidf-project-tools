@@ -1,17 +1,8 @@
----
-layout: default
-title: "Contributing"
-description: "How to contribute to the HardFOC ESP-IDF CI Tools project"
-nav_order: 4
-parent: "📚 Reference"
-permalink: /docs/contributing/
----
-
 # Contributing to HardFOC ESP-IDF CI Tools
 
 We welcome contributions to the HardFOC ESP-IDF CI Tools project! This guide explains how you can help improve the project.
 
-## 🤝 How to Contribute
+## How to Contribute
 
 ### Types of Contributions
 
@@ -30,7 +21,7 @@ We welcome contributions to the HardFOC ESP-IDF CI Tools project! This guide exp
 4. **Make your changes** and test them
 5. **Submit a pull request** with a clear description
 
-## 🐛 Reporting Issues
+## Reporting Issues
 
 ### Before Reporting
 
@@ -66,7 +57,7 @@ What actually happens
 Any other relevant information
 ```
 
-## ✨ Feature Requests
+## Feature Requests
 
 ### Before Requesting
 
@@ -93,7 +84,7 @@ What other approaches were considered?
 Any other relevant information
 ```
 
-## 🔧 Code Contributions
+## Code Contributions
 
 ### Development Setup
 
@@ -141,7 +132,7 @@ Before submitting:
 5. **Test thoroughly** before submitting
 6. **Submit PR** with detailed description
 
-## 📝 Documentation Contributions
+## Documentation Contributions
 
 ### Types of Documentation
 
@@ -172,7 +163,7 @@ bundle exec jekyll serve
 # View at http://localhost:4000
 ```
 
-## 🧪 Testing Contributions
+## Testing Contributions
 
 ### Types of Testing
 
@@ -188,7 +179,7 @@ bundle exec jekyll serve
 - **Test edge cases** and error conditions
 - **Document test requirements** and setup
 
-## 💬 Community Support
+## Community Support
 
 ### Ways to Help
 
@@ -204,7 +195,7 @@ bundle exec jekyll serve
 - **Search before asking** to avoid duplicates
 - **Use appropriate channels** for different types of discussions
 
-## 🏗️ Project Structure
+## Project Structure
 
 Understanding the project structure:
 
@@ -224,7 +215,7 @@ hf-espidf-project-tools/
 - **Configuration** - YAML configuration system
 - **Documentation** - Jekyll-based documentation site
 
-## 📋 Contribution Checklist
+## Contribution Checklist
 
 Before submitting:
 
@@ -235,7 +226,7 @@ Before submitting:
 - [ ] **Pull request** has detailed description
 - [ ] **No breaking changes** without discussion
 
-## 🎯 Development Priorities
+## Development Priorities
 
 Current focus areas:
 
@@ -245,7 +236,7 @@ Current focus areas:
 4. **Multi-platform support** - Windows and macOS improvements
 5. **Advanced features** - More configuration options
 
-## 📞 Getting Help
+## Getting Help
 
 ### Communication Channels
 
@@ -259,7 +250,7 @@ Current focus areas:
 - **GitHub**: [@N3b3x](https://github.com/N3b3x)
 - **Email**: Available through GitHub profile
 
-## 📜 Code of Conduct
+## Code of Conduct
 
 ### Our Pledge
 
@@ -287,11 +278,11 @@ We are committed to providing a welcoming and inclusive experience for everyone,
 - **Spam** or off-topic discussions
 - **Other unprofessional conduct**
 
-## 📄 License
+## License
 
 By contributing, you agree that your contributions will be licensed under the same license as the project (MIT License).
 
-## 🙏 Recognition
+## Recognition
 
 Contributors will be recognized in:
 

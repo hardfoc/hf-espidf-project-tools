@@ -1,13 +1,4 @@
----
-layout: default
-title: "🔧 Core Systems"
-description: "Core development systems for ESP-IDF projects"
-nav_order: 2
-has_children: true
-permalink: /docs/core-systems/
----
-
-# 🔧 Core Systems
+# Core Systems
 
 The core systems provide the fundamental functionality for ESP-IDF development workflows.
 

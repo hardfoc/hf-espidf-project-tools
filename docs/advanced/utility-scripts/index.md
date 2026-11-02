@@ -1,21 +1,12 @@
----
-layout: default
-title: "Utility Scripts"
-description: "ESP-IDF utility scripts for port detection, setup automation, and workflow management"
-nav_order: 3
-parent: "🔬 Advanced Topics"
-permalink: /docs/advanced/utility-scripts/
----
-
 # ESP32 Utility Scripts Guide
 
 This document provides comprehensive documentation for the ESP32 utility scripts, including port
 detection, setup automation, and helper tools for development workflow management.
 
-## 📋 **Table of Contents**
+## **Table of Contents**
 
 
-## 📋 **Overview**
+## **Overview**
 
 The ESP-IDF utility scripts provide essential tools for development environment setup,
 port detection, troubleshooting, and workflow automation.
@@ -37,7 +28,7 @@ intelligent automation for common development tasks.
 - Automated troubleshooting and problem resolution
 - **CI-Specific Optimizations**: Cache management and build directory preparation
 
-## 🏗️ **Architecture and Design**
+## **Architecture and Design**
 
 ### **New System Architecture**
 ```
@@ -101,7 +92,7 @@ Port Detection   Local vs CI        setup_repo.sh      Dependency Mgmt   Environ
 - **User Experience**: Clear feedback and error handling
 - **Environment Separation**: Clear distinction between local development and CI needs
 
-## 🔌 **Port Detection and Troubleshooting**
+## **Port Detection and Troubleshooting**
 
 ### **Cross-Platform Port Detection**
 
@@ -202,7 +193,7 @@ groups $USER
 - Connection testing
 ```
 
-## ⚙️ **Environment Setup and Automation**
+## **Environment Setup and Automation**
 
 ### **Dual Environment Setup System**
 
@@ -304,7 +295,7 @@ The system now provides two distinct setup approaches optimized for different us
 - Environment-specific optimization
 ```
 
-## 🔧 **Configuration and Information Tools**
+## **Configuration and Information Tools**
 
 ### **Configuration Management**
 
@@ -359,7 +350,7 @@ execute_process(
 - Environment variables
 ```
 
-## 🚀 **Usage Examples and Patterns**
+## **Usage Examples and Patterns**
 
 ### **Environment Setup Workflows**
 
@@ -504,7 +495,7 @@ execute_process(
 ./setup_repo.sh --verify  # Local
 ```
 
-## 🔍 **Troubleshooting and Debugging**
+## **Troubleshooting and Debugging**
 
 ### **Common Port Issues**
 
@@ -648,7 +639,7 @@ export VERBOSE=1
 - CI vs local environment differences
 ```
 
-## 📚 **Reference and Examples**
+## **Reference and Examples**
 
 ### **Command Reference**
 

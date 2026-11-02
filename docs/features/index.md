@@ -1,12 +1,3 @@
----
-layout: default
-title: "Features"
-description: "Key features and capabilities of the HardFOC ESP-IDF CI Tools"
-nav_order: 1
-parent: "📚 Reference"
-permalink: /docs/features/
----
-
 # Features
 
 The HardFOC ESP-IDF CI Tools provide comprehensive CI/CD capabilities specifically designed for ESP-IDF development workflows.

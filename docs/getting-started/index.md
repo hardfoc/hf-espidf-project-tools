@@ -1,20 +1,10 @@
----
-layout: default
-title: "Getting Started"
-description: "Quick start guide for the HardFOC ESP-IDF Project Tools"
-nav_order: 1
-parent: "📚 Documentation"
-has_children: true
-permalink: /docs/getting-started/
----
-
 # Getting Started with HardFOC ESP-IDF Project Tools
 
 Welcome to the HardFOC ESP-IDF Project Tools! This guide will help you **integrate these development scripts into your existing ESP-IDF project** for enhanced multi-application build management and development workflows.
 
 > **📋 Important**: These tools are designed to be **integrated into your ESP-IDF project**, not used as standalone applications.
 
-## 🚀 Integration Methods
+## Integration Methods
 
 Choose the best method to integrate these tools into your ESP-IDF project:
 
@@ -116,7 +106,7 @@ git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts
 # Start building!
 ```
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have:
 
@@ -125,7 +115,7 @@ Before you begin, ensure you have:
 - **Write permissions** in your working directory
 - **Basic understanding** of ESP-IDF development (for existing projects)
 
-## 🛠️ What You Get
+## What You Get
 
 ### Complete Project Structure
 ```
@@ -150,7 +140,7 @@ my-esp-idf-project/
 - **List ESP32 devices:** `./scripts/flash_app.sh ports`
 - **Flash to specific device:** `./scripts/flash_app.sh --port /dev/ttyACM1 flash <app_type> <build_type>`
 
-## 🎯 Next Steps
+## Next Steps
 
 Once you have a project set up:
 
@@ -160,13 +150,13 @@ Once you have a project set up:
 4. **[CI Pipeline](ci-pipeline/)** - Set up automated builds
 5. **[Advanced Topics](advanced/multi-version-idf/)** - Explore advanced features
 
-## 🆘 Need Help?
+## Need Help?
 
 - **[Troubleshooting](troubleshooting/)** - Common issues and solutions
 - **[Examples](examples/)** - Real-world usage examples
 - **[GitHub Issues](https://github.com/hardfoc/hf-espidf-project-tools/issues)** - Report bugs or request features
 
-## 🎯 What's Next?
+## What's Next?
 
 - **Customize workflows** for your specific needs
 - **Add security scanning** to your pipeline

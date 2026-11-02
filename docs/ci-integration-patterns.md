@@ -1,17 +1,8 @@
----
-layout: default
-title: "CI/CD Integration Patterns"
-description: "Common patterns for integrating ESP-IDF project tools in CI/CD workflows"
-nav_order: 2
-parent: "⚡ CI Pipeline"
-permalink: /docs/ci-integration-patterns/
----
-
 # CI/CD Integration Patterns
 
 This guide covers common patterns for integrating the HardFOC ESP-IDF Project Tools into your CI/CD workflows, including GitHub Actions, GitLab CI, and other automation platforms.
 
-## 📋 Directory Structure Concepts
+## Directory Structure Concepts
 
 ### Project Directory (`project_dir`)
 - **Purpose**: Points to your ESP-IDF project directory (contains `CMakeLists.txt`, `app_config.yml`)
@@ -23,7 +14,7 @@ This guide covers common patterns for integrating the HardFOC ESP-IDF Project To
 - **Multi-Project Support**: Can be shared across multiple projects since all scripts accept `--project-path` argument
 - **Examples**: `examples/esp32/scripts`, `examples/esp32/hf-espidf-project-tools`, `tools/esp32-build-scripts`, `shared-tools`
 
-## 🏗️ Common Integration Patterns
+## Common Integration Patterns
 
 ### Pattern 1: Submodule Setup (Recommended)
 
@@ -175,7 +166,7 @@ jobs:
       project_tools_dir: shared-tools  # Same shared tools directory
 ```
 
-## 🔧 Advanced Configuration
+## Advanced Configuration
 
 ### Environment Variables
 
@@ -212,7 +203,7 @@ strategy:
     ./scripts/build_app.sh ${{ matrix.app }} ${{ matrix.build_type }}
 ```
 
-## 🚀 Best Practices
+## Best Practices
 
 ### 1. Directory Structure
 - Keep ESP-IDF projects in dedicated directories (`examples/`, `firmware/`, `projects/`)
@@ -234,7 +225,7 @@ strategy:
 - Use proper error codes and exit conditions
 - Provide clear error messages for debugging
 
-## 🔗 Related Documentation
+## Related Documentation
 
 - **[CI Pipeline](/docs/ci-pipeline/)** - Detailed CI pipeline documentation
 - **[Build System](/docs/build-system/)** - Understanding the build system

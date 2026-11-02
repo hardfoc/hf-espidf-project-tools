@@ -1,22 +1,12 @@
----
-layout: default
-title: "Configuration System"
-description: "ESP-IDF configuration system with YAML management, validation, and smart defaults"
-nav_order: 2
-parent: "🔧 Core Systems"
-has_children: true
-permalink: /docs/configuration/
----
-
 # ESP-IDF Configuration System Guide
 
 This document provides comprehensive documentation for the ESP-IDF configuration system, including
 YAML configuration management, validation, and integration with all scripts.
 
-## 📋 **Table of Contents**
+## **Table of Contents**
 
 
-## 📋 **Overview**
+## **Overview**
 
 The ESP-IDF configuration system provides centralized,
 intelligent configuration management for all scripts in the HardFOC Interface Wrapper project.
@@ -41,7 +31,7 @@ and cross-platform compatibility.
 - Configuration integrity validation
 - Cross-script configuration sharing
 
-## 🏗️ **Architecture and Design**
+## **Architecture and Design**
 
 ### **System Architecture**
 ```yaml
@@ -65,7 +55,7 @@ Definitions      Validation       Fallbacks         Execution
 
 ---
 
-## 🛡️ **Enhanced Validation System**
+## **Enhanced Validation System**
 
 The configuration system now includes comprehensive validation to prevent invalid build combinations
 and provide clear guidance to users.
@@ -172,7 +162,7 @@ fi
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-## ⚙️ **Configuration File Structure**
+## **Configuration File Structure**
 
 ### **Configuration File Location**
 The configuration system reads from:
@@ -377,7 +367,7 @@ validation:
     - default_build_type must be valid
     - target must be supported
 ```
-## 🔧 **Configuration Loading and Validation**
+## **Configuration Loading and Validation**
 
 ### **Configuration Loading Process**
 
@@ -628,7 +618,7 @@ get_build_directory_pattern() {
     fi
 }
 ```
-## 🔄 **Environment Variable Overrides**
+## **Environment Variable Overrides**
 
 ### **Configuration Override System**
 
@@ -770,7 +760,7 @@ validate_current_config() {
     return $errors
 }
 ```
-## 🚀 **Usage Examples and Patterns**
+## **Usage Examples and Patterns**
 
 ### **Basic Configuration Usage**
 
@@ -988,7 +978,7 @@ set(CMAKE_BUILD_TYPE ${DEFAULT_BUILD_TYPE})
     done
 ```
 
-## 🔍 **Troubleshooting and Debugging**
+## **Troubleshooting and Debugging**
 
 ### **Common Configuration Issues**
 
@@ -1153,7 +1143,7 @@ fi
 
 echo "All configuration tests passed!"
 ```
-## 📚 **Reference and Examples**
+## **Reference and Examples**
 
 ### **Configuration Function Reference**
 
@@ -1359,14 +1349,14 @@ system_config:
   optional_tools: ["yq", "screen", "tmux"]
   cache_directories: ["$HOME/.ccache", "$HOME/.espressif", "$HOME/.cache/pip"]
 ```
-## 🚀 **Enhanced Functionality**
+## **Enhanced Functionality**
 
 #### **App-Specific Overrides**
 - **Smart Build Type Handling**: `get_build_types(app_type)` now checks app-specific overrides first
 - **Version-Aware Validation**: Functions now understand the relationship between IDF versions and build types
 - **Intelligent Fallbacks**: When app overrides aren't specified, functions fall back to metadata defaults
 
-#### **🆕 Enhanced Validation Functions**
+#### ** Enhanced Validation Functions**
 - **`is_valid_build_type(build_type, app_type, idf_version)`**: Comprehensive validation with app and version context
 - **`is_valid_combination(app_type, build_type, idf_version)`**: Single function for complete combination validation
 - **`get_app_build_types_for_idf_version(app_type, idf_version)`**: Get build types for specific app-IDF combinations

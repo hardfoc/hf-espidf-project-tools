@@ -1,13 +1,4 @@
----
-layout: default
-title: "📚 Reference"
-description: "Reference materials, examples, and troubleshooting"
-nav_order: 5
-has_children: true
-permalink: /docs/reference/
----
-
-# 📚 Reference
+# Reference
 
 Reference materials, examples, and troubleshooting guides for the HardFOC ESP-IDF Project Tools.
 
