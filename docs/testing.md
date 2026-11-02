@@ -31,11 +31,11 @@ The build and flash scripts are exercised by every repository that builds its ES
 
 | Workflow | Checks |
 | --- | --- |
-| `ci-docs-publish.yml` | Strict site build, generated tables and figure drift, link check, Lighthouse; publishes the site from `main`; a single `CI gate` check |
+| `ci-docs-publish.yml` | Strict site build, generated tables and figure drift, link check, Lighthouse; publishes the site from `main`; runs `script-tests.yml`; a single `CI gate` check that fails when the docs or the script tests fail |
+| `script-tests.yml` | `tests/test_scripts.sh` on Ubuntu (GNU tools) and macOS (BSD tools, bash 3.2). Called by `ci-docs-publish.yml`: always on `main`, and on pull requests that change a `.sh` or `.py` file, `tests/` or a workflow; otherwise skipped, which the gate accepts |
 | `yamllint.yml` | YAML style (`.yamllint`, strict) |
-| `script-tests.yml` | `tests/test_scripts.sh` on Ubuntu (GNU tools) and macOS (BSD tools, bash 3.2); on pull requests only when a script, test or the workflow changes |
 
-The first two call the versioned workflows of [hf-general-ci-tools](https://github.com/hardfoc/hf-general-ci-tools)
+`ci-docs-publish.yml` and `yamllint.yml` call the versioned workflows of [hf-general-ci-tools](https://github.com/hardfoc/hf-general-ci-tools)
 at `@v1`. After editing an argument of `generate_matrix.py` or `get_app_info.py`, refresh the tables on this
 site:
 

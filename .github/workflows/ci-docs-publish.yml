@@ -1,6 +1,7 @@
 ---
 # Documentation: strict MkDocs build, generated-table checks, offline link check, Lighthouse budget and screenshots
 # on pull requests; publish to gh-pages with mike (main -> dev, vX.Y.Z tag -> that version + latest).
+# Also runs the script tests (script-tests.yml), so the single CI gate covers both.
 # Inputs: docs/ru-mkdocs-publish.md in hardfoc/hf-general-ci-tools.
 name: 📚 Docs
 
@@ -20,6 +21,41 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  # Whether the script tests must run: always on push and manual runs; on pull requests only when a script, a
+  # test or a CI workflow changed.
+  changes:
+    name: Changed files
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      scripts: ${{ steps.filter.outputs.scripts }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: filter
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            echo "scripts=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          changed="$(git diff --name-only "$BASE_SHA" HEAD)"
+          echo "$changed"
+          if echo "$changed" | grep -qE '\.(sh|py)$|^tests/|^\.github/workflows/'; then
+            echo "scripts=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "scripts=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  script-tests:
+    needs: [changes]
+    if: needs.changes.outputs.scripts == 'true'
+    uses: ./.github/workflows/script-tests.yml
+    permissions:
+      contents: read
+
   docs:
     uses: hardfoc/hf-general-ci-tools/.github/workflows/ru-mkdocs-publish.yml@v1
     permissions:
@@ -30,10 +66,11 @@ jobs:
   # Single required check: passes only if every job above passed
   ci-gate:
     name: CI gate
-    needs: [docs]
+    needs: [changes, script-tests, docs]
     if: always()
     uses: hardfoc/hf-general-ci-tools/.github/workflows/ru-ci-gate.yml@v1
     permissions:
       contents: read
     with:
       needs_json: ${{ toJSON(needs) }}
+      allow_skipped: script-tests  # skipped when a pull request changes no script, test or workflow
