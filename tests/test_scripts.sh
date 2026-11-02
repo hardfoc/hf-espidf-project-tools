@@ -188,6 +188,31 @@ test_idf_status_names_both_folder_styles() {
     assert_not_contains "$out" "- release_v5.4"
 }
 
+test_idf_no_command_prints_usage_and_exits_2() {
+    export HOME="$TEST_TMP"
+    local out status=0
+    out=$("$ROOT/manage_idf.sh" 2>&1) || status=$?
+    assert_eq "$status" "2" || return 1
+    assert_contains "$out" "No command specified" || return 1
+    assert_contains "$out" "Usage: ./manage_idf.sh" || return 1
+    assert_not_contains "$out" "command not found"
+}
+
+test_idf_unknown_command_exits_2() {
+    export HOME="$TEST_TMP"
+    local out status=0
+    out=$("$ROOT/manage_idf.sh" bogus 2>&1) || status=$?
+    assert_eq "$status" "2" || return 1
+    assert_contains "$out" "Unknown command: bogus" || return 1
+    assert_not_contains "$out" "command not found"
+}
+
+test_idf_help_exits_0() {
+    local out
+    out=$("$ROOT/manage_idf.sh" --help) || fail "--help exited non-zero" || return 1
+    assert_contains "$out" "Usage: ./manage_idf.sh"
+}
+
 # ---------------------------------------------------------------------------------------------------------------
 # config_loader.sh: build_config defaults and the portable mtime sort
 # ---------------------------------------------------------------------------------------------------------------

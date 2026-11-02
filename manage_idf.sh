@@ -40,8 +40,8 @@ source "$SCRIPT_DIR/setup_common.sh"
 # Replace $@ with filtered arguments for the rest of the script
 set -- "${FILTERED_ARGS[@]}"
 
-# Show help if requested
-if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+# Print the usage text
+show_help() {
     echo "ESP-IDF Version Management Script"
     echo ""
     echo "Usage: ./manage_idf.sh [COMMAND] [OPTIONS] [VERSION]"
@@ -108,7 +108,11 @@ if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     echo "  • If switch fails: Check permissions and existing installations"
     echo "  • For version conflicts: Use --force flag carefully"
     echo ""
-    echo "For detailed information, see: docs/README_UTILITY_SCRIPTS.md"
+}
+
+# Show help if requested
+if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+    show_help
     exit 0
 fi
 
@@ -336,15 +340,11 @@ main() {
     local command="$1"
     local force_flag="$2"
     
-    # Check if help is requested
-    if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
-        show_help
-    fi
-    
-    # Check if command is provided
+    # Check if command is provided: usage on stderr, exit status 2 (usage error)
     if [[ -z "$command" ]]; then
-        print_error "No command specified"
-        show_help
+        print_error "No command specified" >&2
+        show_help >&2
+        exit 2
     fi
     
     # Execute command
@@ -371,8 +371,9 @@ main() {
             show_status
             ;;
         *)
-            print_error "Unknown command: $command"
-            show_help
+            print_error "Unknown command: $command" >&2
+            show_help >&2
+            exit 2
             ;;
     esac
 }

@@ -18,6 +18,9 @@ Install, list, export and switch the ESP-IDF versions that `app_config.yml` asks
 | `clean <version>` | Deletes the version's folder |
 | `status` | The current ESP-IDF environment |
 
+With no command, or an unknown one, it prints the usage on stderr and exits with status 2; `--help` prints it on
+stdout and exits 0.
+
 The folder name replaces every character other than letters, digits, `.`, `_` and `-` with `-`:
 `release/v5.5` is installed in `~/esp/esp-idf-release-v5.5`. Tools go to `~/.espressif/` as usual.
 
