@@ -10,8 +10,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: docs-with-doxygen-${{ github.ref }}
@@ -19,7 +17,7 @@ concurrency:
 
 jobs:
   publish-docs:
-    uses: hardfoc/hf-general-ci-tools/.github/workflows/ru-docs-publish.yml@main
+    uses: hardfoc/hf-general-ci-tools/.github/workflows/ru-docs-publish.yml@v1
     with:
       checkout_recursive: false
       # Jekyll configuration for this repo's docs
@@ -44,3 +42,14 @@ jobs:
 
       # Deploy to GitHub Pages (pushes to main / manual runs only, never from PRs)
       deploy_pages: ${{ github.event_name != 'pull_request' }}
+
+  # ✅ Single required check: passes only if every job above passed
+  ci-gate:
+    name: CI gate
+    needs: [publish-docs]
+    if: always()
+    uses: hardfoc/hf-general-ci-tools/.github/workflows/ru-ci-gate.yml@v1
+    permissions:
+      contents: read
+    with:
+      needs_json: ${{ toJSON(needs) }}
