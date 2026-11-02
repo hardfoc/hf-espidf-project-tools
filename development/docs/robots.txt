@@ -96,4 +96,4 @@ User-agent: SemrushBot
 Disallow: /
 
 # Host directive (helps with duplicate content issues)
-Host: https://n3b3x.github.io
+Host: https://hardfoc.github.io

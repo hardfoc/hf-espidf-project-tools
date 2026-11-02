@@ -22,7 +22,7 @@
   },"3": {
     "doc": "HardFOC ESP-IDF Project Tools",
     "title": "Integration Methods",
-    "content": "Choose the best method for your ESP-IDF project: . Method 1: Submodule Integration (Recommended) . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Add tools as submodule git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts # Your project structure: # your-esp-idf-project/ # ├── CMakeLists.txt # ├── app_config.yml # ├── main/ # └── scripts/ # Project tools # ├── build_app.sh # └── flash_app.sh # Start building ./scripts/build_app.sh your_app Release . | . Method 2: Direct Clone Integration . | 1 2 3 4 5 6 7 8 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Clone tools directly git clone https://github.com/n3b3x/hf-espidf-project-tools.git scripts # Start building ./scripts/build_app.sh your_app Release . | . Method 3: Shared Tools Directory . | 1 2 3 4 5 6 7 8 . | # For multiple projects, use shared tools mkdir -p ~/shared-esp32-tools cd ~/shared-esp32-tools git clone https://github.com/n3b3x/hf-espidf-project-tools.git . # In each ESP-IDF project, use --project-path cd your-esp-idf-project ~/shared-esp32-tools/build_app.sh --project-path . your_app Release . | . ",
+    "content": "Choose the best method for your ESP-IDF project: . Method 1: Submodule Integration (Recommended) . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Add tools as submodule git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts # Your project structure: # your-esp-idf-project/ # ├── CMakeLists.txt # ├── app_config.yml # ├── main/ # └── scripts/ # Project tools # ├── build_app.sh # └── flash_app.sh # Start building ./scripts/build_app.sh your_app Release . | . Method 2: Direct Clone Integration . | 1 2 3 4 5 6 7 8 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Clone tools directly git clone https://github.com/hardfoc/hf-espidf-project-tools.git scripts # Start building ./scripts/build_app.sh your_app Release . | . Method 3: Shared Tools Directory . | 1 2 3 4 5 6 7 8 . | # For multiple projects, use shared tools mkdir -p ~/shared-esp32-tools cd ~/shared-esp32-tools git clone https://github.com/hardfoc/hf-espidf-project-tools.git . # In each ESP-IDF project, use --project-path cd your-esp-idf-project ~/shared-esp32-tools/build_app.sh --project-path . your_app Release . | . ",
     "url": "/hf-espidf-project-tools/development/#integration-methods",
     
     "relUrl": "/#integration-methods"
@@ -2479,14 +2479,14 @@
   },"354": {
     "doc": "Installation",
     "title": "Method 1: Direct Copy (Recommended)",
-    "content": "This is the simplest method for most users: . | Download the repository: | 1 2 . | git clone https://github.com/n3b3x/hf-espidf-project-tools.git cd hf-espidf-project-tools . | . | Copy scripts to your repository: | 1 2 3 4 5 6 7 8 9 10 11 12 . | # Navigate to your repository root cd /path/to/your/repository # Create scripts directory mkdir -p scripts # Copy all scripts cp hf-espidf-project-tools/*.sh scripts/ cp hf-espidf-project-tools/*.py scripts/ # Copy configuration files to your ESP-IDF project cp hf-espidf-project-tools/examples/esp32/app_config.yml your-esp-idf-project/ . | . | Update configuration for your project: . | Update your-esp-idf-project/app_config.yml with your applications | Configure ESP-IDF versions as needed | Modify your your-esp-idf-project/CMakeLists.txt to support multi-application builds | . | . ",
+    "content": "This is the simplest method for most users: . | Download the repository: | 1 2 . | git clone https://github.com/hardfoc/hf-espidf-project-tools.git cd hf-espidf-project-tools . | . | Copy scripts to your repository: | 1 2 3 4 5 6 7 8 9 10 11 12 . | # Navigate to your repository root cd /path/to/your/repository # Create scripts directory mkdir -p scripts # Copy all scripts cp hf-espidf-project-tools/*.sh scripts/ cp hf-espidf-project-tools/*.py scripts/ # Copy configuration files to your ESP-IDF project cp hf-espidf-project-tools/examples/esp32/app_config.yml your-esp-idf-project/ . | . | Update configuration for your project: . | Update your-esp-idf-project/app_config.yml with your applications | Configure ESP-IDF versions as needed | Modify your your-esp-idf-project/CMakeLists.txt to support multi-application builds | . | . ",
     "url": "/hf-espidf-project-tools/development/docs/getting-started/installation/#method-1-direct-copy-recommended",
     
     "relUrl": "/docs/getting-started/installation/#method-1-direct-copy-recommended"
   },"355": {
     "doc": "Installation",
     "title": "Method 2: Git Submodule",
-    "content": "For projects that want to track updates: . | Add as submodule: | 1 2 . | cd /path/to/your/repository git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts . | . | . 2.. Update submodule when needed: . | 1 . | git submodule update --remote scripts . | . ",
+    "content": "For projects that want to track updates: . | Add as submodule: | 1 2 . | cd /path/to/your/repository git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts . | . | . 2.. Update submodule when needed: . | 1 . | git submodule update --remote scripts . | . ",
     "url": "/hf-espidf-project-tools/development/docs/getting-started/installation/#method-2-git-submodule",
     
     "relUrl": "/docs/getting-started/installation/#method-2-git-submodule"
@@ -2787,7 +2787,7 @@
   },"398": {
     "doc": "Project Setup",
     "title": "Integration with Existing Projects",
-    "content": "If you already have an ESP-IDF project, you can still add the tools: . | 1 2 3 4 5 6 7 8 . | # Navigate to existing project cd existing-project # Add tools as submodule git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts # Create app_config.yml manually # (See Configuration documentation for details) . | . ",
+    "content": "If you already have an ESP-IDF project, you can still add the tools: . | 1 2 3 4 5 6 7 8 . | # Navigate to existing project cd existing-project # Add tools as submodule git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts # Create app_config.yml manually # (See Configuration documentation for details) . | . ",
     "url": "/hf-espidf-project-tools/development/docs/getting-started/project-setup/#integration-with-existing-projects",
     
     "relUrl": "/docs/getting-started/project-setup/#integration-with-existing-projects"
@@ -2962,35 +2962,35 @@
   },"423": {
     "doc": "Getting Started",
     "title": "Method 1: Submodule Integration (Recommended)",
-    "content": "Best for: Version-controlled projects with team collaboration . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Add tools as submodule git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts # Your project structure: # your-esp-idf-project/ # ├── CMakeLists.txt # ├── app_config.yml # ├── main/ # └── scripts/ # Project tools # ├── build_app.sh # └── flash_app.sh # Start building ./scripts/build_app.sh your_app Release . | . ",
+    "content": "Best for: Version-controlled projects with team collaboration . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Add tools as submodule git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts # Your project structure: # your-esp-idf-project/ # ├── CMakeLists.txt # ├── app_config.yml # ├── main/ # └── scripts/ # Project tools # ├── build_app.sh # └── flash_app.sh # Start building ./scripts/build_app.sh your_app Release . | . ",
     "url": "/hf-espidf-project-tools/development/docs/getting-started/#method-1-submodule-integration-recommended",
     
     "relUrl": "/docs/getting-started/#method-1-submodule-integration-recommended"
   },"424": {
     "doc": "Getting Started",
     "title": "Method 2: Direct Clone Integration",
-    "content": "Best for: Quick setup and experimentation . | 1 2 3 4 5 6 7 8 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Clone tools directly git clone https://github.com/n3b3x/hf-espidf-project-tools.git scripts # Start building ./scripts/build_app.sh your_app Release . | . ",
+    "content": "Best for: Quick setup and experimentation . | 1 2 3 4 5 6 7 8 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Clone tools directly git clone https://github.com/hardfoc/hf-espidf-project-tools.git scripts # Start building ./scripts/build_app.sh your_app Release . | . ",
     "url": "/hf-espidf-project-tools/development/docs/getting-started/#method-2-direct-clone-integration",
     
     "relUrl": "/docs/getting-started/#method-2-direct-clone-integration"
   },"425": {
     "doc": "Getting Started",
     "title": "Method 3: Shared Tools Directory",
-    "content": "Best for: Multiple projects using the same tools . | 1 2 3 4 5 6 7 8 . | # Create shared tools directory mkdir -p ~/shared-esp32-tools cd ~/shared-esp32-tools git clone https://github.com/n3b3x/hf-espidf-project-tools.git . # In each ESP-IDF project, use --project-path cd your-esp-idf-project ~/shared-esp32-tools/build_app.sh --project-path . your_app Release . | . ",
+    "content": "Best for: Multiple projects using the same tools . | 1 2 3 4 5 6 7 8 . | # Create shared tools directory mkdir -p ~/shared-esp32-tools cd ~/shared-esp32-tools git clone https://github.com/hardfoc/hf-espidf-project-tools.git . # In each ESP-IDF project, use --project-path cd your-esp-idf-project ~/shared-esp32-tools/build_app.sh --project-path . your_app Release . | . ",
     "url": "/hf-espidf-project-tools/development/docs/getting-started/#method-3-shared-tools-directory",
     
     "relUrl": "/docs/getting-started/#method-3-shared-tools-directory"
   },"426": {
     "doc": "Getting Started",
     "title": "Method 4: Automated Project Setup",
-    "content": "Best for: Creating new ESP-IDF projects with tools pre-integrated . | 1 2 3 4 5 6 7 8 9 10 11 12 13 . | # Clone the tools repository git clone https://github.com/n3b3x/hf-espidf-project-tools.git cd hf-espidf-project-tools # Create a complete ESP-IDF project with tools ./setup_basic.sh my-awesome-project # Navigate to your new project cd my-awesome-project # Build and flash ./scripts/build_app.sh main_app Release ./scripts/flash_app.sh flash main_app Release . | . That’s it! You now have a complete ESP-IDF project with: . | ✅ ESP-IDF installed and configured | ✅ Build system set up | ✅ app_config.yml with basic app | ✅ CMakeLists.txt files | ✅ Basic main.cpp template | ✅ All development scripts ready to use | . ",
+    "content": "Best for: Creating new ESP-IDF projects with tools pre-integrated . | 1 2 3 4 5 6 7 8 9 10 11 12 13 . | # Clone the tools repository git clone https://github.com/hardfoc/hf-espidf-project-tools.git cd hf-espidf-project-tools # Create a complete ESP-IDF project with tools ./setup_basic.sh my-awesome-project # Navigate to your new project cd my-awesome-project # Build and flash ./scripts/build_app.sh main_app Release ./scripts/flash_app.sh flash main_app Release . | . That’s it! You now have a complete ESP-IDF project with: . | ✅ ESP-IDF installed and configured | ✅ Build system set up | ✅ app_config.yml with basic app | ✅ CMakeLists.txt files | ✅ Basic main.cpp template | ✅ All development scripts ready to use | . ",
     "url": "/hf-espidf-project-tools/development/docs/getting-started/#method-4-automated-project-setup",
     
     "relUrl": "/docs/getting-started/#method-4-automated-project-setup"
   },"427": {
     "doc": "Getting Started",
     "title": "Option 2: Add to Existing Project",
-    "content": "If you already have an ESP-IDF project: . | 1 2 3 4 5 6 7 8 9 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Add tools as submodule git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts # Create app_config.yml (see Configuration guide) # Set up CMakeLists.txt files # Start building! . | . ",
+    "content": "If you already have an ESP-IDF project: . | 1 2 3 4 5 6 7 8 9 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Add tools as submodule git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts # Create app_config.yml (see Configuration guide) # Set up CMakeLists.txt files # Start building! . | . ",
     "url": "/hf-espidf-project-tools/development/docs/getting-started/#option-2-add-to-existing-project",
     
     "relUrl": "/docs/getting-started/#option-2-add-to-existing-project"
@@ -3865,21 +3865,21 @@
   },"552": {
     "doc": "📚 Documentation",
     "title": "Method 1: Submodule Integration (Recommended)",
-    "content": "| 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Add tools as submodule git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts # Your project structure: # your-esp-idf-project/ # ├── CMakeLists.txt # ├── app_config.yml # ├── main/ # └── scripts/ # Project tools # ├── build_app.sh # └── flash_app.sh # Start building ./scripts/build_app.sh your_app Release . | . ",
+    "content": "| 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Add tools as submodule git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts # Your project structure: # your-esp-idf-project/ # ├── CMakeLists.txt # ├── app_config.yml # ├── main/ # └── scripts/ # Project tools # ├── build_app.sh # └── flash_app.sh # Start building ./scripts/build_app.sh your_app Release . | . ",
     "url": "/hf-espidf-project-tools/development/docs/#method-1-submodule-integration-recommended",
     
     "relUrl": "/docs/#method-1-submodule-integration-recommended"
   },"553": {
     "doc": "📚 Documentation",
     "title": "Method 2: Direct Clone Integration",
-    "content": "| 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Clone tools directly git clone https://github.com/n3b3x/hf-espidf-project-tools.git scripts # Your project structure: # your-esp-idf-project/ # ├── CMakeLists.txt # ├── app_config.yml # ├── main/ # └── scripts/ # Project tools # ├── build_app.sh # └── flash_app.sh # Start building ./scripts/build_app.sh your_app Release . | . ",
+    "content": "| 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 . | # Navigate to your ESP-IDF project cd your-esp-idf-project # Clone tools directly git clone https://github.com/hardfoc/hf-espidf-project-tools.git scripts # Your project structure: # your-esp-idf-project/ # ├── CMakeLists.txt # ├── app_config.yml # ├── main/ # └── scripts/ # Project tools # ├── build_app.sh # └── flash_app.sh # Start building ./scripts/build_app.sh your_app Release . | . ",
     "url": "/hf-espidf-project-tools/development/docs/#method-2-direct-clone-integration",
     
     "relUrl": "/docs/#method-2-direct-clone-integration"
   },"554": {
     "doc": "📚 Documentation",
     "title": "Method 3: Shared Tools Directory",
-    "content": "| 1 2 3 4 5 6 7 8 . | # For multiple projects, use shared tools mkdir -p ~/shared-esp32-tools cd ~/shared-esp32-tools git clone https://github.com/n3b3x/hf-espidf-project-tools.git . # In each ESP-IDF project, use --project-path cd your-esp-idf-project ~/shared-esp32-tools/build_app.sh --project-path . your_app Release . | . ",
+    "content": "| 1 2 3 4 5 6 7 8 . | # For multiple projects, use shared tools mkdir -p ~/shared-esp32-tools cd ~/shared-esp32-tools git clone https://github.com/hardfoc/hf-espidf-project-tools.git . # In each ESP-IDF project, use --project-path cd your-esp-idf-project ~/shared-esp32-tools/build_app.sh --project-path . your_app Release . | . ",
     "url": "/hf-espidf-project-tools/development/docs/#method-3-shared-tools-directory",
     
     "relUrl": "/docs/#method-3-shared-tools-directory"
