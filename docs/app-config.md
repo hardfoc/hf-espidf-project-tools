@@ -71,10 +71,9 @@ The key is the app name used on the command line (`gpio_test`) and passed to CMa
 | `project_name_pattern` | ESP-IDF project name, with `{app_type}`; used to find the `.bin` to flash |
 | `build_types.<name>` | Descriptive (flags, defines); CMake sets the real flags |
 
-!!! warning "Set both patterns when yq is installed"
-    With `yq` the scripts read the two patterns as they are; a missing key gives the literal `null` (a build
-    folder named `builds/null`). Without `yq` they are ignored and fixed defaults are used:
-    `build-app-{app_type}-type-{build_type}-target-{target}-idf-{idf_version}` and `esp32_iid_{app_type}_app`.
+A pattern that is missing or empty falls back to its default, with or without `yq`:
+`build-app-{app_type}-type-{build_type}-target-{target}-idf-{idf_version}` and `esp32_iid_{app_type}_app`.
+Without `yq` the scripts always use these defaults and ignore the keys.
 
 ## ci_config
 

@@ -180,6 +180,10 @@ else
     CONFIG_FILE="$PROJECT_DIR/app_config.yml"
 fi
 
+# Defaults for build_config patterns that app_config.yml does not set (or when yq is not installed)
+DEFAULT_BUILD_DIRECTORY_PATTERN="build-app-{app_type}-type-{build_type}-target-{target}-idf-{idf_version}"
+DEFAULT_PROJECT_NAME_PATTERN="esp32_iid_{app_type}_app"
+
 # Check if yq is available for YAML parsing and detect version
 check_yq() {
     # Always check for yq availability (no caching) - this allows detecting newly installed yq
@@ -665,15 +669,16 @@ get_build_directory() {
     # Sanitize IDF version for directory names (replace / and . with _)
     local sanitized_idf_version=$(echo "$idf_version" | sed 's/[\/\.]/_/g')
     
-    # Get the build directory name pattern
-    local build_dir_name
+    # Get the build directory name pattern; without yq, or when the key is missing or empty, use the default
+    local pattern=""
     if check_yq; then
-        local pattern=$(run_yq '.build_config.build_directory_pattern' -r)
-        build_dir_name=$(echo "${pattern}" | sed "s/{app_type}/${app_type}/g" | sed "s/{build_type}/${build_type}/g" | sed "s/{target}/${target}/g" | sed "s/{idf_version}/${sanitized_idf_version}/g")
-    else
-        # Fallback pattern with hyphens and prefixes
-        build_dir_name="build-app-${app_type}-type-${build_type}-target-${target}-idf-${sanitized_idf_version}"
+        pattern=$(run_yq '.build_config.build_directory_pattern' -r 2>/dev/null) || pattern=""
     fi
+    if [[ -z "$pattern" || "$pattern" == "null" ]]; then
+        pattern="$DEFAULT_BUILD_DIRECTORY_PATTERN"
+    fi
+    local build_dir_name
+    build_dir_name=$(echo "${pattern}" | sed "s/{app_type}/${app_type}/g" | sed "s/{build_type}/${build_type}/g" | sed "s/{target}/${target}/g" | sed "s/{idf_version}/${sanitized_idf_version}/g")
     
     # Always return absolute path relative to project directory, placing builds in builds/ subdirectory
     echo "$PROJECT_DIR/builds/$build_dir_name"
@@ -682,12 +687,14 @@ get_build_directory() {
 # Get project name pattern
 get_project_name() {
     local app_type="$1"
+    local pattern=""
     if check_yq; then
-        local pattern=$(run_yq '.build_config.project_name_pattern' -r)
-        echo "${pattern}" | sed "s/{app_type}/${app_type}/g"
-    else
-        echo "esp32_iid_${app_type}_app"
+        pattern=$(run_yq '.build_config.project_name_pattern' -r 2>/dev/null) || pattern=""
     fi
+    if [[ -z "$pattern" || "$pattern" == "null" ]]; then
+        pattern="$DEFAULT_PROJECT_NAME_PATTERN"
+    fi
+    echo "${pattern}" | sed "s/{app_type}/${app_type}/g"
 }
 
 # Get CI-enabled app types

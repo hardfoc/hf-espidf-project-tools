@@ -7,7 +7,6 @@ Symptoms, causes and fixes, cheapest check first.
 | `ERROR: Invalid app type` | The name is not a key under `apps:` | `./scripts/build_app.sh list` |
 | `Invalid build combination` | The app does not allow that build type with that ESP-IDF version | `./scripts/build_app.sh info <app>` |
 | `Warning: yq not found. Falling back to basic parsing.` | No `yq`; the fallback parser has limits | Install `yq` ([config_loader.sh](config-loader.md#yq-or-the-fallback-parser)) |
-| Build folder is `builds/null` | `yq` is installed and `build_directory_pattern` is missing | Add both patterns under `build_config` ([app_config.yml](app-config.md#build_config)) |
 | `PROJECT_PATH specified but app_config.yml not found` | `--project-path` points at the wrong folder | Point it at the folder with `app_config.yml` |
 | `APP_TYPE not defined. Please use build_app.sh` | `idf.py build` was run directly | Build with `build_app.sh`, or pass the [CMake variables](project-layout.md#what-cmake-receives) |
 | `Failed to setup ESP-IDF environment` | The version could not be cloned or installed | Check the version name and network; `./scripts/manage_idf.sh install` |
