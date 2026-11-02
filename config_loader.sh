@@ -184,6 +184,17 @@ fi
 DEFAULT_BUILD_DIRECTORY_PATTERN="build-app-{app_type}-type-{build_type}-target-{target}-idf-{idf_version}"
 DEFAULT_PROJECT_NAME_PATTERN="esp32_iid_{app_type}_app"
 
+# Print the paths read from stdin (one per line), newest modification time first. Uses GNU stat -c or
+# BSD/macOS stat -f, so it works where GNU-only find -printf does not.
+sort_paths_by_mtime_desc() {
+    local path mtime
+    while IFS= read -r path; do
+        [[ -n "$path" ]] || continue
+        mtime=$(stat -c %Y "$path" 2>/dev/null || stat -f %m "$path" 2>/dev/null) || continue
+        printf '%s\t%s\n' "$mtime" "$path"
+    done | sort -rn -k1,1 | cut -f2-
+}
+
 # Check if yq is available for YAML parsing and detect version
 check_yq() {
     # Always check for yq availability (no caching) - this allows detecting newly installed yq
