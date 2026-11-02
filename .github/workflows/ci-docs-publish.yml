@@ -1,0 +1,39 @@
+---
+# Documentation: strict MkDocs build, generated-table checks, offline link check, Lighthouse budget and screenshots
+# on pull requests; publish to gh-pages with mike (main -> dev, vX.Y.Z tag -> that version + latest).
+# Inputs: docs/ru-mkdocs-publish.md in hardfoc/hf-general-ci-tools.
+name: 📚 Docs
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  docs:
+    uses: hardfoc/hf-general-ci-tools/.github/workflows/ru-mkdocs-publish.yml@v1
+    permissions:
+      contents: write  # the publish job pushes gh-pages; pull requests never publish
+    with:
+      deploy: true
+
+  # Single required check: passes only if every job above passed
+  ci-gate:
+    name: CI gate
+    needs: [docs]
+    if: always()
+    uses: hardfoc/hf-general-ci-tools/.github/workflows/ru-ci-gate.yml@v1
+    permissions:
+      contents: read
+    with:
+      needs_json: ${{ toJSON(needs) }}

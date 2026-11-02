@@ -1,0 +1,24 @@
+---
+# Site navigation (mkdocs-awesome-nav): the tabs and their pages, in reading order.
+nav:
+  - Home: index.md
+  - Get started:
+      - Quickstart: quickstart.md
+      - Setting up a machine: setup.md
+  - Concepts:
+      - Project layout: project-layout.md
+      - app_config.yml: app-config.md
+  - Guides:
+      - build_app.sh: build-app.md
+      - flash_app.sh: flash-app.md
+      - manage_idf.sh: manage-idf.md
+      - config_loader.sh: config-loader.md
+      - generate_matrix.py: generate-matrix.md
+      - get_app_info.py: get-app-info.md
+      - Ports and logs: ports-and-logs.md
+      - Tab completion: tab-completion.md
+      - Using in CI: ci.md
+      - Troubleshooting: troubleshooting.md
+  - Reference:
+      - Testing and CI: testing.md
+      - Figures: diagrams/index.md

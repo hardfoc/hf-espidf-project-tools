@@ -1,0 +1,24 @@
+{
+  "commands": [
+    "build_app.sh",
+    "flash_app.sh",
+    "manage_idf.sh",
+    "idf_flash_monitor.sh",
+    "setup_repo.sh",
+    "setup_basic.sh",
+    "manage_logs.sh",
+    "detect_ports.sh"
+  ],
+  "sources_config_loader": [
+    "build_app.sh",
+    "flash_app.sh",
+    "manage_idf.sh",
+    "idf_flash_monitor.sh"
+  ],
+  "sources": [
+    "build_app.sh:source config_loader.sh",
+    "flash_app.sh:source config_loader.sh",
+    "manage_idf.sh:source config_loader.sh",
+    "idf_flash_monitor.sh:source config_loader.sh"
+  ]
+}
