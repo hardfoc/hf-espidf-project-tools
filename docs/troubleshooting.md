@@ -11,7 +11,6 @@ Symptoms, causes and fixes, cheapest check first.
 | `PROJECT_PATH specified but app_config.yml not found` | `--project-path` points at the wrong folder | Point it at the folder with `app_config.yml` |
 | `APP_TYPE not defined. Please use build_app.sh` | `idf.py build` was run directly | Build with `build_app.sh`, or pass the [CMake variables](project-layout.md#what-cmake-receives) |
 | `Failed to setup ESP-IDF environment` | The version could not be cloned or installed | Check the version name and network; `./scripts/manage_idf.sh install` |
-| `switch`/`update`/`clean` say the version is not installed | Folder name mismatch | See the [warning](manage-idf.md#commands) |
 | `Invalid pairing secret format` | The secret is not 32 hex characters | `openssl rand -hex 16` |
 | `No suitable serial ports found!` | No board, a charge-only cable, a missing driver | `./scripts/detect_ports.sh --verbose` |
 | `Permission denied` on `/dev/ttyACM0` | The user is not in `dialout` (Linux) | `sudo usermod -aG dialout $USER`, then log in again |
