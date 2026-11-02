@@ -103,6 +103,47 @@
   <meta property="og:description" content="Scripts that build, flash and monitor every app of a multi-app ESP-IDF project from one app_config.yml, locally and in CI.">
   <meta property="og:url" content="https://hardfoc.github.io/hf-espidf-project-tools/latest/">
   <meta name="twitter:card" content="summary">
+  <script>
+(function () {
+  if (typeof mermaid != "undefined" && !(mermaid instanceof Element)) return;
+  var SRC = "https://unpkg.com/mermaid@11/dist/mermaid.min.js", config = {}, real, loading, waiting = [];
+  var stub = {
+    initialize: function (c) { config = c || {}; if (real) real.initialize(config); },
+    render: function (id, text) {
+      var el = null, pres = document.querySelectorAll("pre.mermaid:not([data-hf-mermaid])");
+      for (var i = 0; i < pres.length && !el; i++) if (pres[i].textContent === text) el = pres[i];
+      if (el) el.setAttribute("data-hf-mermaid", "");
+      return near(el).then(load).then(function (m) { return m.render(id, text); });
+    }
+  };
+  function load() {
+    return loading || (loading = new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = SRC;
+      s.onload = function () {
+        real = window.mermaid;
+        window.mermaid = stub;
+        real.initialize(config);
+        resolve(real);
+      };
+      s.onerror = function () { loading = null; reject(new Error("Mermaid did not load")); };
+      document.head.appendChild(s);
+    }));
+  }
+  function near(el) {
+    if (real || !el || !("IntersectionObserver" in window)) return Promise.resolve();
+    return new Promise(function (resolve) {
+      var io = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) { io.disconnect(); resolve(); }
+      }, { rootMargin: "100% 0px" });
+      io.observe(el);
+      waiting.push(function () { io.disconnect(); resolve(); });
+    });
+  }
+  window.addEventListener("beforeprint", function () { waiting.splice(0).forEach(function (go) { go(); }); });
+  window.mermaid = stub;
+})();
+</script>
 
   </head>
   
@@ -862,14 +903,14 @@ on your machine and in CI.</p>
 <code>app_config.yml</code> they read. Every HardFOC driver, <code>hf-core</code> and the board HALs use them for their ESP32 examples,
 and <a href="https://hardfoc.github.io/hf-espidf-ci-tools/">hf-espidf-ci-tools</a> runs them in GitHub Actions.</p>
 <figure class="hf-figure">
-<img src="diagrams/tool-map.svg#only-light" alt="Diagram: app_config.yml is read by config_loader.sh and by the Python scripts generate_matrix.py and get_app_info.py; build_app.sh, flash_app.sh, manage_idf.sh and idf_flash_monitor.sh use them; build_app.sh runs idf.py into a build folder under builds/; hf-espidf-ci-tools calls generate_matrix.py and build_app.sh." width="1200" loading="lazy"><img src="diagrams/tool-map.dark.svg#only-dark" alt="Diagram: app_config.yml is read by config_loader.sh and by the Python scripts generate_matrix.py and get_app_info.py; build_app.sh, flash_app.sh, manage_idf.sh and idf_flash_monitor.sh use them; build_app.sh runs idf.py into a build folder under builds/; hf-espidf-ci-tools calls generate_matrix.py and build_app.sh." width="1200" loading="lazy">
+<img src="diagrams/tool-map.svg#only-light" alt="Diagram: app_config.yml is read by config_loader.sh and by the Python scripts generate_matrix.py and get_app_info.py; build_app.sh, flash_app.sh, manage_idf.sh and idf_flash_monitor.sh use them; build_app.sh runs idf.py into a build folder under builds/; hf-espidf-ci-tools calls generate_matrix.py and build_app.sh." width="1200" height="688"><img src="diagrams/tool-map.dark.svg#only-dark" alt="Diagram: app_config.yml is read by config_loader.sh and by the Python scripts generate_matrix.py and get_app_info.py; build_app.sh, flash_app.sh, manage_idf.sh and idf_flash_monitor.sh use them; build_app.sh runs idf.py into a build folder under builds/; hf-espidf-ci-tools calls generate_matrix.py and build_app.sh." width="1200" height="688">
 <figcaption>One configuration file, every script</figcaption>
 </figure>
 
 <details class="hf-figure-desc">
 <summary>Figure description and sources</summary>
 <p>From top to bottom. app_config.yml in the ESP-IDF project lists the apps, ESP-IDF versions, build types and target. Two readers parse it: config_loader.sh, which the shell scripts source, and the Python scripts generate_matrix.py and get_app_info.py. The commands that source config_loader.sh (read from the scripts) sit on top of them. build_app.sh drives idf.py and writes one build folder per app, build type, target and ESP-IDF version under builds/. In CI, hf-espidf-ci-tools runs generate_matrix.py and build_app.sh.</p>
-<p>Drawn from: <a href="https://github.com/hardfoc/hf-espidf-project-tools/blob/0efa5649873b9ba9ef078d32cba7e84bcaf0c1a0/build_app.sh"><code>build_app.sh</code></a> <code>source config_loader.sh</code>; <a href="https://github.com/hardfoc/hf-espidf-project-tools/blob/0efa5649873b9ba9ef078d32cba7e84bcaf0c1a0/flash_app.sh"><code>flash_app.sh</code></a> <code>source config_loader.sh</code>; <a href="https://github.com/hardfoc/hf-espidf-project-tools/blob/0efa5649873b9ba9ef078d32cba7e84bcaf0c1a0/manage_idf.sh"><code>manage_idf.sh</code></a> <code>source config_loader.sh</code>; <a href="https://github.com/hardfoc/hf-espidf-project-tools/blob/0efa5649873b9ba9ef078d32cba7e84bcaf0c1a0/idf_flash_monitor.sh"><code>idf_flash_monitor.sh</code></a> <code>source config_loader.sh</code>; figure module <a href="https://github.com/hardfoc/hf-espidf-project-tools/blob/0efa5649873b9ba9ef078d32cba7e84bcaf0c1a0/docs/diagrams/figures/tool-map.py"><code>docs/diagrams/figures/tool-map.py</code></a>.</p>
+<p>Drawn from: <a href="https://github.com/hardfoc/hf-espidf-project-tools/blob/9b2291c4a006cb50c6fd6e54534ecad19b6490b4/build_app.sh"><code>build_app.sh</code></a> <code>source config_loader.sh</code>; <a href="https://github.com/hardfoc/hf-espidf-project-tools/blob/9b2291c4a006cb50c6fd6e54534ecad19b6490b4/flash_app.sh"><code>flash_app.sh</code></a> <code>source config_loader.sh</code>; <a href="https://github.com/hardfoc/hf-espidf-project-tools/blob/9b2291c4a006cb50c6fd6e54534ecad19b6490b4/manage_idf.sh"><code>manage_idf.sh</code></a> <code>source config_loader.sh</code>; <a href="https://github.com/hardfoc/hf-espidf-project-tools/blob/9b2291c4a006cb50c6fd6e54534ecad19b6490b4/idf_flash_monitor.sh"><code>idf_flash_monitor.sh</code></a> <code>source config_loader.sh</code>; figure module <a href="https://github.com/hardfoc/hf-espidf-project-tools/blob/9b2291c4a006cb50c6fd6e54534ecad19b6490b4/docs/diagrams/figures/tool-map.py"><code>docs/diagrams/figures/tool-map.py</code></a>.</p>
 </details>
 <h2 id="the-scripts">The scripts<a class="headerlink" href="#the-scripts" title="Permanent link">&para;</a></h2>
 <table>
