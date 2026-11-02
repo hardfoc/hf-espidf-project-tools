@@ -42,13 +42,15 @@ Reads the logs in `<project>/logs/`:
 
 | Command | Does |
 | --- | --- |
-| `list` | Every log (names in reverse order) with date, time and size |
-| `view <log>` | Shows one log |
-| `search <pattern>` | Searches every log |
-| `clean [days]` | Deletes logs older than `days` (default 30) |
-| `stats` | Count, total size and logs per app |
+| `list [pattern]` | Every log (names in reverse order) with date, time and size; only names containing `pattern` when given |
+| `view <log>` | Shows one log (in `less` on a terminal) |
+| `search <pattern>` | Searches every log; prints the first 5 matching lines of each |
+| `clean [days]` | Deletes logs older than `days` (default 30) after asking |
+| `stats` | Count, total size, oldest and newest, and logs per app |
 | `latest` | The last 20 lines of the newest log |
+| `tail <log> [lines]` | The last `lines` lines of one log (default 50); add `--follow` to keep printing new lines |
+| `grep <log> <pattern>` | Matching lines of one log with line numbers; exit status 1 when nothing matches |
 
-The script's `--help` also mentions `tail`, `grep`, `--follow`, `--verbose` and `--no-color`; they are not
-implemented. `latest` uses GNU `find -printf` and `list` uses GNU `stat -c`, so on macOS `latest` prints nothing and
-`list` shows no dates.
+`<log>` is a file name in `<project>/logs/`, or a path when it contains `/`. Patterns are `grep` basic regular
+expressions and are case-sensitive. `--no-color` (or the `NO_COLOR` environment variable) turns off colours.
+The script uses only commands that behave the same with GNU and BSD tools, so it works on Linux and macOS.
