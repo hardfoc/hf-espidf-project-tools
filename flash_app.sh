@@ -914,11 +914,10 @@ cleanup_old_logs() {
         echo "Cleaning up old log files (keeping last $max_logs)..."
         
         # Find all log files, sort by modification time (newest first), keep only the latest ones
-        find "$LOG_DIR" -name "*.log" -type f -printf '%T@ %p\n' | \
-            sort -nr | \
+        find "$LOG_DIR" -name "*.log" -type f | \
+            sort_paths_by_mtime_desc | \
             tail -n +$((max_logs + 1)) | \
-            cut -d' ' -f2- | \
-            xargs -r rm -f
+            while IFS= read -r old_log; do rm -f "$old_log"; done
         
         echo "Log cleanup completed"
     fi
@@ -1096,7 +1095,7 @@ case $OPERATION in
         MONITOR_BUILD_DIR=""
         if [ -d "$PROJECT_DIR/builds" ]; then
             # Find the most recently modified build directory
-            MONITOR_BUILD_DIR=$(find "$PROJECT_DIR/builds" -maxdepth 1 -type d -name "build-*" -printf '%T@ %p\n' 2>/dev/null | sort -rn | head -1 | cut -d' ' -f2-)
+            MONITOR_BUILD_DIR=$(find "$PROJECT_DIR/builds" -maxdepth 1 -type d -name "build-*" 2>/dev/null | sort_paths_by_mtime_desc | head -1)
         fi
         
         if [ -n "$MONITOR_BUILD_DIR" ] && [ -d "$MONITOR_BUILD_DIR" ]; then

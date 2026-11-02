@@ -21,11 +21,9 @@ Install, list, export and switch the ESP-IDF versions that `app_config.yml` asks
 The folder name replaces every character other than letters, digits, `.`, `_` and `-` with `-`:
 `release/v5.5` is installed in `~/esp/esp-idf-release-v5.5`. Tools go to `~/.espressif/` as usual.
 
-!!! warning "switch, update and clean use a different folder name"
-    These three commands look for `~/esp/esp-idf-release_v5.5` (`/` replaced by `_`) while `install`,
-    `build_app.sh` and `setup_basic.sh` create `~/esp/esp-idf-release-v5.5`. On a machine set up by this
-    repository they report the version as not installed; switch or remove the folder by hand until this is
-    fixed.
+`switch`, `update`, `clean` and `export` also find a version installed under the older name with `/` replaced
+by `_` (`~/esp/esp-idf-release_v5.5`), so machines set up by earlier versions of these scripts keep working.
+`list` and `status` show both names as `release/v5.5`.
 
 ## Using an installed version
 

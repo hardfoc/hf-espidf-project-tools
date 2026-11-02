@@ -559,6 +559,28 @@ install_esp_idf() {
     print_success "ESP-IDF versions installed/updated and optimized for caching"
 }
 
+# ESP-IDF install folder for a version: ~/esp/esp-idf-<version>, with every character other than letters,
+# digits, ".", "_" and "-" replaced by "-" (release/v5.5 -> ~/esp/esp-idf-release-v5.5).
+esp_idf_dir_for_version() {
+    echo "$HOME/esp/esp-idf-$(echo "$1" | sed 's/[^a-zA-Z0-9._-]/-/g')"
+}
+
+# Existing install folder for a version: the name above, else the older name with "/" replaced by "_"
+# (~/esp/esp-idf-release_v5.5). Prints the standard name and returns 1 when neither exists.
+find_esp_idf_dir() {
+    local standard legacy
+    standard=$(esp_idf_dir_for_version "$1")
+    legacy="$HOME/esp/esp-idf-${1//\//_}"
+    if [[ -d "$standard" ]]; then
+        echo "$standard"
+    elif [[ -d "$legacy" ]]; then
+        echo "$legacy"
+    else
+        echo "$standard"
+        return 1
+    fi
+}
+
 # Function to export ESP-IDF environment for specific version
 export_esp_idf_version() {
     local idf_version="$1"
@@ -570,9 +592,8 @@ export_esp_idf_version() {
     fi
     
     local esp_dir="$HOME/esp"
-    # Use the same sanitization as installation function
-    local sanitized_version=$(echo "$idf_version" | sed 's/[^a-zA-Z0-9._-]/-/g')
-    local idf_dir="$esp_dir/esp-idf-${sanitized_version}"
+    local idf_dir
+    idf_dir=$(find_esp_idf_dir "$idf_version") || true
     
     if [[ ! -d "$idf_dir" ]]; then
         if [[ "$auto_install" == "true" ]]; then
@@ -588,7 +609,7 @@ export_esp_idf_version() {
             print_status "Available versions:"
             for dir in "$esp_dir"/esp-idf-*; do
                 if [[ -d "$dir" ]]; then
-                    local version_name=$(basename "$dir" | sed 's/esp-idf-//' | sed 's/_/\//')
+                    local version_name=$(basename "$dir" | sed 's/esp-idf-//' | sed 's/[-_]/\//')
                     echo "  - $version_name"
                 fi
             done
@@ -726,7 +747,7 @@ list_esp_idf_versions() {
     local found_versions=0
     for dir in "$esp_dir"/esp-idf-*; do
         if [[ -d "$dir" ]]; then
-            local version_name=$(basename "$dir" | sed 's/esp-idf-//' | sed 's/-/\//')
+            local version_name=$(basename "$dir" | sed 's/esp-idf-//' | sed 's/[-_]/\//')
             local is_default=""
             
             # Check if this is the default symlink

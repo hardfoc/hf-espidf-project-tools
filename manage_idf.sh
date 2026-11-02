@@ -136,8 +136,8 @@ install_idf_versions() {
         print_status "Installing ESP-IDF $version..."
         
         local esp_dir="$HOME/esp"
-        local sanitized_version=$(echo "$version" | sed 's/[^a-zA-Z0-9._-]/-/g')
-        local idf_dir="$esp_dir/esp-idf-${sanitized_version}"
+        local idf_dir
+        idf_dir=$(esp_idf_dir_for_version "$version")
         
         if [[ -d "$idf_dir" ]] && [[ "$1" != "--force" ]]; then
             print_warning "ESP-IDF $version already exists at $idf_dir"
@@ -215,13 +215,12 @@ switch_default_version() {
     fi
     
     local esp_dir="$HOME/esp"
-    local idf_dir="$esp_dir/esp-idf-${version//\//_}"
-    local default_link="$esp_dir/esp-idf"
-    
-    if [[ ! -d "$idf_dir" ]]; then
+    local idf_dir
+    if ! idf_dir=$(find_esp_idf_dir "$version"); then
         print_error "ESP-IDF version $version not found at $idf_dir"
         return 1
     fi
+    local default_link="$esp_dir/esp-idf"
     
     # Remove existing symlink
     if [[ -L "$default_link" ]]; then
@@ -246,9 +245,8 @@ update_idf_version() {
     fi
     
     local esp_dir="$HOME/esp"
-    local idf_dir="$esp_dir/esp-idf-${version//\//_}"
-    
-    if [[ ! -d "$idf_dir" ]]; then
+    local idf_dir
+    if ! idf_dir=$(find_esp_idf_dir "$version"); then
         print_error "ESP-IDF version $version not found at $idf_dir"
         return 1
     fi
@@ -278,13 +276,12 @@ clean_idf_version() {
     fi
     
     local esp_dir="$HOME/esp"
-    local idf_dir="$esp_dir/esp-idf-${version//\//_}"
-    local default_link="$esp_dir/esp-idf"
-    
-    if [[ ! -d "$idf_dir" ]]; then
+    local idf_dir
+    if ! idf_dir=$(find_esp_idf_dir "$version"); then
         print_error "ESP-IDF version $version not found at $idf_dir"
         return 1
     fi
+    local default_link="$esp_dir/esp-idf"
     
     # Check if this is the default version
     if [[ -L "$default_link" ]] && [[ "$(readlink "$default_link")" == "$idf_dir" ]]; then
@@ -321,7 +318,7 @@ show_status() {
     
     if [[ -L "$default_link" ]]; then
         local target=$(readlink "$default_link")
-        local version_name=$(basename "$target" | sed 's/esp-idf-//' | sed 's/_/\//')
+        local version_name=$(basename "$target" | sed 's/esp-idf-//' | sed 's/[-_]/\//')
         print_success "Default ESP-IDF version: $version_name"
         print_status "  Symlink: $default_link -> $target"
     else

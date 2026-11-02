@@ -37,8 +37,8 @@ cache:
 ```
 
 The placeholders `{app_type}`, `{build_type}`, `{target}` and `{idf_version}` are replaced; the ESP-IDF version
-has `/` and `.` turned into `_` (`release/v5.5` becomes `release_v5_5`). Without `yq` the pattern is not read and
-`build-app-{app_type}-type-{build_type}-target-{target}-idf-{idf_version}` is used.
+has `/` and `.` turned into `_` (`release/v5.5` becomes `release_v5_5`). Without `yq`, or when the key is missing, the
+pattern `build-app-{app_type}-type-{build_type}-target-{target}-idf-{idf_version}` is used.
 
 ## What CMake receives
 
