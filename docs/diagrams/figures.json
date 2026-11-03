@@ -1,0 +1,16 @@
+{
+  "tool-map": {
+    "title": "One configuration file, every script",
+    "alt": "Diagram: app_config.yml is read by config_loader.sh and by the Python scripts generate_matrix.py and get_app_info.py; build_app.sh, flash_app.sh, manage_idf.sh and idf_flash_monitor.sh use them; build_app.sh runs idf.py into a build folder under builds/; hf-espidf-ci-tools calls generate_matrix.py and build_app.sh.",
+    "description": "From top to bottom. app_config.yml in the ESP-IDF project lists the apps, ESP-IDF versions, build types and target. Two readers parse it: config_loader.sh, which the shell scripts source, and the Python scripts generate_matrix.py and get_app_info.py. The commands that source config_loader.sh (read from the scripts) sit on top of them. build_app.sh drives idf.py and writes one build folder per app, build type, target and ESP-IDF version under builds/. In CI, hf-espidf-ci-tools runs generate_matrix.py and build_app.sh.",
+    "profile": "overview",
+    "width": 1200,
+    "source": "docs/diagrams/figures/tool-map.py",
+    "sources": [
+      "build_app.sh:source config_loader.sh",
+      "flash_app.sh:source config_loader.sh",
+      "manage_idf.sh:source config_loader.sh",
+      "idf_flash_monitor.sh:source config_loader.sh"
+    ]
+  }
+}

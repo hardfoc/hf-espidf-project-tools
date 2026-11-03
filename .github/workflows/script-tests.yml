@@ -1,0 +1,40 @@
+---
+# Behaviour tests of the shell and Python scripts (tests/test_scripts.sh) with GNU tools (Ubuntu) and BSD tools
+# and bash 3.2 (macOS). No ESP-IDF install; each job takes well under a minute.
+# Called by ci-docs-publish.yml, whose CI gate requires it whenever a script or test changed.
+name: 🧪 Script tests
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Script tests (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML
+        run: python -m pip install pyyaml
+
+      - name: Tool versions
+        run: |
+          /bin/bash --version | head -1
+          stat --version 2>/dev/null | head -1 || echo "stat: BSD"
+          find --version 2>/dev/null | head -1 || echo "find: BSD"
+
+      - name: Run tests
+        run: /bin/bash tests/test_scripts.sh

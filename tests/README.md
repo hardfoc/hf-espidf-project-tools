@@ -4,6 +4,17 @@ This directory contains test scripts and utilities for validating the ESP32 buil
 
 ## Test Scripts
 
+### `test_scripts.sh`
+Behaviour tests for `manage_idf.sh`, `manage_logs.sh`, `config_loader.sh` and `get_app_info.py`. Needs only
+bash (3.2 or later); the `get_app_info.py` tests also need `python3` with PyYAML. Runs in CI on Ubuntu and macOS
+(`.github/workflows/script-tests.yml`, called by `ci-docs-publish.yml` and required by its CI gate).
+
+**Usage:**
+```bash
+./tests/test_scripts.sh          # all tests
+./tests/test_scripts.sh logs     # only tests whose name contains "logs"
+```
+
 ### `test_tab_completion.sh`
 Comprehensive test suite for the ESP32 tab completion system.
 

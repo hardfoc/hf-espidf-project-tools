@@ -58,6 +58,7 @@ show_help() {
     echo "  6. Generates app_config.yml with basic main.cpp app"
     echo "  7. Creates basic main.cpp template"
     echo "  8. Sets up CMakeLists.txt files"
+    echo "  9. Writes sdkconfig.defaults (FreeRTOS tick at 1000 Hz)"
     echo ""
     echo "REQUIREMENTS:"
     echo "  • Git installed and configured"
@@ -110,7 +111,7 @@ git init
 
 # Add hf-espidf-project-tools as submodule
 print_status "Adding hf-espidf-project-tools as submodule..."
-git submodule add https://github.com/n3b3x/hf-espidf-project-tools.git scripts
+git submodule add https://github.com/hardfoc/hf-espidf-project-tools.git scripts
 
 # Install ESP-IDF version
 print_status "Installing ESP-IDF version: $ESPIDF_VERSION"
@@ -347,6 +348,14 @@ target_compile_definitions(${COMPONENT_LIB} PRIVATE
 )
 EOF
 
+# Create sdkconfig.defaults
+print_status "Creating sdkconfig.defaults..."
+cat > sdkconfig.defaults << 'EOF'
+# HardFOC standard: FreeRTOS runs at 1000 Hz. hf-utils-rtos-wrap rounds a
+# nonzero delay up to one tick, so ms-precision waits need a 1 ms tick.
+CONFIG_FREERTOS_HZ=1000
+EOF
+
 # Create app_config.yml
 print_status "Creating app_config.yml..."
 cat > app_config.yml << EOF
@@ -479,6 +488,7 @@ $PROJECT_NAME/
 │   └── CMakeLists.txt        # Main component build configuration
 ├── scripts/                  # Development tools (submodule)
 ├── app_config.yml           # App configuration
+├── sdkconfig.defaults       # Kconfig defaults (FreeRTOS tick at 1000 Hz)
 ├── CMakeLists.txt           # Project root build configuration
 └── README.md                # This file
 \`\`\`
@@ -489,7 +499,7 @@ This project uses ESP-IDF version: **$ESPIDF_VERSION**
 
 ## Documentation
 
-For detailed documentation, see: [hf-espidf-project-tools](https://github.com/n3b3x/hf-espidf-project-tools)
+For detailed documentation, see: [hf-espidf-project-tools](https://github.com/hardfoc/hf-espidf-project-tools)
 EOF
 
 # Make scripts executable
@@ -505,6 +515,7 @@ git commit -m "Initial commit: ESP-IDF project with hf-espidf-project-tools
 - Created basic main.cpp template
 - Set up CMakeLists.txt files
 - Generated app_config.yml with main_app
+- Added sdkconfig.defaults (FreeRTOS tick at 1000 Hz)
 - ESP-IDF version: $ESPIDF_VERSION"
 
 print_success "Project setup completed successfully!"
