@@ -31,7 +31,8 @@ It then checks the installation. Plan for about 2 GB per ESP-IDF version.
 Creates `project_name/`, runs `git init`, adds this repository as the `scripts` submodule, installs the ESP-IDF
 version (`v5.5` is read as `release/v5.5`), and writes `main/main.cpp`, the two `CMakeLists.txt` files that
 follow the [CMake contract](project-layout.md#what-cmake-receives), an `app_config.yml` with one app
-(`main_app`), a `.gitignore` and a `README.md`. Then:
+(`main_app`), a `sdkconfig.defaults` that sets the HardFOC FreeRTOS tick of 1000 Hz
+([why](project-layout.md#freertos-tick-rate)), a `.gitignore` and a `README.md`. Then:
 
 ```bash
 cd my-esp-idf-project

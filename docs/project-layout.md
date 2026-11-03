@@ -8,6 +8,7 @@ Where the scripts expect the project, where they put builds and logs, and what C
 examples/esp32/                  the ESP-IDF project ("project directory")
 ├── CMakeLists.txt
 ├── app_config.yml               read by every script
+├── sdkconfig.defaults           Kconfig defaults, including CONFIG_FREERTOS_HZ=1000
 ├── main/                        the app sources named in app_config.yml
 ├── scripts/                     this repository (submodule)
 ├── builds/                      created by build_app.sh, one folder per build
@@ -67,6 +68,20 @@ endif()
 idf_component_register(SRCS "${APP_SOURCE_FILE}" REQUIRES driver esp_timer freertos log)
 target_compile_definitions(${COMPONENT_LIB} PRIVATE "APP_TYPE_${APP_TYPE}=1")
 ```
+
+## FreeRTOS tick rate
+
+HardFOC ESP-IDF projects run FreeRTOS at 1000 Hz; hf-utils-rtos-wrap timing assumes at least 1 kHz for
+ms-precision delays, because it rounds a nonzero delay up to one tick. ESP-IDF's default is 100 Hz, which turns a
+1 ms wait into 10 ms. Set the rate in `sdkconfig.defaults`, which `setup_basic.sh` writes:
+
+```text title="sdkconfig.defaults"
+CONFIG_FREERTOS_HZ=1000
+```
+
+`build_app.sh` does not pass its own defaults file, so ESP-IDF reads `sdkconfig.defaults` (and
+`sdkconfig.defaults.<target>`) from the project directory. A committed `sdkconfig` takes precedence over both, so
+a project that commits one sets `CONFIG_FREERTOS_HZ=1000` there as well.
 
 ## ESP-NOW pairing secret
 
