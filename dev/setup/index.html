@@ -1021,7 +1021,8 @@
 <p>Creates <code>project_name/</code>, runs <code>git init</code>, adds this repository as the <code>scripts</code> submodule, installs the ESP-IDF
 version (<code>v5.5</code> is read as <code>release/v5.5</code>), and writes <code>main/main.cpp</code>, the two <code>CMakeLists.txt</code> files that
 follow the <a href="../project-layout/#what-cmake-receives">CMake contract</a>, an <code>app_config.yml</code> with one app
-(<code>main_app</code>), a <code>.gitignore</code> and a <code>README.md</code>. Then:</p>
+(<code>main_app</code>), a <code>sdkconfig.defaults</code> that sets the HardFOC FreeRTOS tick of 1000 Hz
+(<a href="../project-layout/#freertos-tick-rate">why</a>), a <code>.gitignore</code> and a <code>README.md</code>. Then:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>my-esp-idf-project
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>./scripts/build_app.sh<span class="w"> </span>main_app<span class="w"> </span>Release
 </span></code></pre></div>

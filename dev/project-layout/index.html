@@ -724,6 +724,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#freertos-tick-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FreeRTOS tick rate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#esp-now-pairing-secret" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -985,6 +996,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#freertos-tick-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FreeRTOS tick rate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#esp-now-pairing-secret" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1026,11 +1048,12 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>examples/esp32/                  the ESP-IDF project ("project directory")
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── CMakeLists.txt
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── app_config.yml               read by every script
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── main/                        the app sources named in app_config.yml
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── scripts/                     this repository (submodule)
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── builds/                      created by build_app.sh, one folder per build
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── logs/                        created by flash_app.sh --log
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>└── secrets.local.yml            optional, ESP-NOW pairing secret (keep it out of git)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── sdkconfig.defaults           Kconfig defaults, including CONFIG_FREERTOS_HZ=1000
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── main/                        the app sources named in app_config.yml
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── scripts/                     this repository (submodule)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── builds/                      created by build_app.sh, one folder per build
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├── logs/                        created by flash_app.sh --log
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>└── secrets.local.yml            optional, ESP-NOW pairing secret (keep it out of git)
 </span></code></pre></div>
 <h2 id="how-the-project-is-found">How the project is found<a class="headerlink" href="#how-the-project-is-found" title="Permanent link">&para;</a></h2>
 <table>
@@ -1114,6 +1137,15 @@ them needs a default. <code>setup_basic.sh</code> writes a project that does thi
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nb">idf_component_register</span><span class="p">(</span><span class="s">SRCS</span><span class="w"> </span><span class="s2">"${APP_SOURCE_FILE}"</span><span class="w"> </span><span class="s">REQUIRES</span><span class="w"> </span><span class="s">driver</span><span class="w"> </span><span class="s">esp_timer</span><span class="w"> </span><span class="s">freertos</span><span class="w"> </span><span class="s">log</span><span class="p">)</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nb">target_compile_definitions</span><span class="p">(</span><span class="o">${</span><span class="nv">COMPONENT_LIB</span><span class="o">}</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s2">"APP_TYPE_${APP_TYPE}=1"</span><span class="p">)</span>
 </span></code></pre></div>
+<h2 id="freertos-tick-rate">FreeRTOS tick rate<a class="headerlink" href="#freertos-tick-rate" title="Permanent link">&para;</a></h2>
+<p>HardFOC ESP-IDF projects run FreeRTOS at 1000 Hz; hf-utils-rtos-wrap timing assumes at least 1 kHz for
+ms-precision delays, because it rounds a nonzero delay up to one tick. ESP-IDF's default is 100 Hz, which turns a
+1 ms wait into 10 ms. Set the rate in <code>sdkconfig.defaults</code>, which <code>setup_basic.sh</code> writes:</p>
+<div class="language-text highlight"><span class="filename">sdkconfig.defaults</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>CONFIG_FREERTOS_HZ=1000
+</span></code></pre></div>
+<p><code>build_app.sh</code> does not pass its own defaults file, so ESP-IDF reads <code>sdkconfig.defaults</code> (and
+<code>sdkconfig.defaults.&lt;target&gt;</code>) from the project directory. A committed <code>sdkconfig</code> takes precedence over both, so
+a project that commits one sets <code>CONFIG_FREERTOS_HZ=1000</code> there as well.</p>
 <h2 id="esp-now-pairing-secret">ESP-NOW pairing secret<a class="headerlink" href="#esp-now-pairing-secret" title="Permanent link">&para;</a></h2>
 <p>Projects that pair boards over ESP-NOW take a 32-hex-character secret. <code>build_app.sh</code> looks, in order, at
 <code>--secret &lt;hex&gt;</code>, the <code>ESPNOW_PAIRING_SECRET</code> environment variable and <code>espnow_pairing_secret:</code> in
